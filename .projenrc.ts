@@ -8,5 +8,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   description: 'secure log bucket.',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/yicr/secure-log-bucket.git',
+  devDeps: [
+    '@yicr/secure-bucket',
+  ],
+  peerDeps: [
+    '@yicr/secure-bucket',
+  ],
 });
 project.synth();
