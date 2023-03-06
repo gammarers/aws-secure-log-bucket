@@ -1,6 +1,6 @@
 {
   "name": "@yicr/secure-log-bucket",
-  "description": "secure log bucket.",
+  "description": "secure multiple transition phases in a single lifecycle policy bucket.",
   "repository": {
     "type": "git",
     "url": "https://github.com/yicr/secure-log-bucket.git"
@@ -65,7 +65,13 @@
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "aws",
+    "aws-cdk",
+    "bucket",
+    "cdk",
+    "lifecycle",
+    "log",
+    "s3"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
