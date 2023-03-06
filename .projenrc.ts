@@ -1,4 +1,4 @@
-import { awscdk } from 'projen';
+import { awscdk, javascript } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
@@ -15,5 +15,17 @@ const project = new awscdk.AwsCdkConstructLibrary({
   peerDeps: [
     '@yicr/secure-bucket',
   ],
+  releaseToNpm: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * *']),
+    },
+  },
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['yicr'],
+  },
 });
 project.synth();
