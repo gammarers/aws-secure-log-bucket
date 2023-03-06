@@ -40,7 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "@yicr/secure-bucket": "0.1.33",
-    "aws-cdk-lib": "2.43.0",
+    "aws-cdk-lib": "2.61.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -61,7 +61,7 @@
   },
   "peerDependencies": {
     "@yicr/secure-bucket": "^0.1.33",
-    "aws-cdk-lib": "^2.43.0",
+    "aws-cdk-lib": "^2.61.0",
     "constructs": "^10.0.5"
   },
   "keywords": [
