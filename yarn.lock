@@ -1088,10 +1088,10 @@
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.7.tgz#8b1e39c547013941974d83ad5e9cf5042071a9a0"
   integrity sha512-sI1Ly2cODlWStkINzqGrZ8K6n+MTSbAeQnAipGyL+KZCXuHaRlj2gyyy8B/9MvsFFqN7XHryQnB2QwhzvJXovg==
 
-"@yicr/secure-bucket@^0.2.15":
-  version "0.2.15"
-  resolved "https://registry.yarnpkg.com/@yicr/secure-bucket/-/secure-bucket-0.2.15.tgz#b70ef41acce4e97c483dd72fd32a26b8b7a5a0a1"
-  integrity sha512-buN0/egdwiRYqV5WGlhUnw2OA5m1tXYtJU+71vD5YVWx8gnulGmk9G241l3g7k0w2lPB8QVpy+ryZx1CXrw3oQ==
+"@yicr/aws-secure-bucket@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@yicr/aws-secure-bucket/-/aws-secure-bucket-0.3.0.tgz#91c41e487a5429e485c052b331f636bef7c47488"
+  integrity sha512-dqIQTVZd+UyNfpM7IlPlN1QnxxZt+HQXNzasMFwBmoSff0UaX6SkgQvCi45+FAiLQGbdq4oElOaJxw12F/91+A==
 
 JSONStream@^1.0.4:
   version "1.3.5"
