@@ -1,4 +1,4 @@
-# Secure Log Bucket
+# AWS Secure Log Bucket
 
 secure multiple transition phases in a single lifecycle policy bucket.
 
@@ -7,21 +7,21 @@ secure multiple transition phases in a single lifecycle policy bucket.
 ### TypeScript
 
 ```shell
-npm install @yicr/secure-log-bucket
+npm install @yicr/aws-secure-log-bucket
 ```
 or
 ```shell
-yarn add @yicr/secure-log-bucket
+yarn add @yicr/aws-secure-log-bucket
 ```
 
 ## Example
 
 ```shell
-npm install @yicr/secure-log-bucket
+npm install @yicr/aws-secure-log-bucket
 ```
 
 ```typescript
-import { SecureLogBucket } from '@yicr/secure-log-bucket';
+import { SecureLogBucket } from '@yicr/aws-secure-log-bucket';
 
 new SecureLogBucket(stack, 'SecureLogBucket');
 ```
