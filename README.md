@@ -2,6 +2,17 @@
 
 secure multiple transition phases in a single lifecycle policy bucket.
 
+## Lifecycle rule
+
+The storage class will be changed with the following lifecycle configuration.
+
+| Storage Class       | Transition after days | 
+| ------------------- | --------------------- | 
+| INFREQUENT_ACCESS   | 60 days               | 
+| INTELLIGENT_TIERING | 120 days              | 
+| GLACIER             | 180 days              | 
+| DEEP_ARCHIVE        | 360 days              |
+
 ## Install
 
 ### TypeScript
