@@ -1,14 +1,15 @@
 import { awscdk, javascript } from 'projen';
+
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
   cdkVersion: '2.61.0',
   defaultReleaseBranch: 'main',
-  name: '@yicr/secure-log-bucket',
+  name: '@yicr/aws-secure-log-bucket',
   description: 'secure multiple transition phases in a single lifecycle policy bucket.',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'lifecycle', 'log'],
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/yicr/secure-log-bucket.git',
+  repositoryUrl: 'https://github.com/yicr/aws-secure-log-bucket.git',
   deps: [
     '@yicr/secure-bucket',
   ],
