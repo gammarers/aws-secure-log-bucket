@@ -59,12 +59,12 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@yicr/aws-secure-bucket": "^0.3.6",
+    "@yicr/aws-secure-bucket": "^0.3.8",
     "aws-cdk-lib": "^2.61.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@yicr/aws-secure-bucket": "^0.3.6"
+    "@yicr/aws-secure-bucket": "^0.3.8"
   },
   "resolutions": {
     "@types/prettier": "2.6.0",
