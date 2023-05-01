@@ -5,6 +5,14 @@ import { Construct } from 'constructs';
 
 export interface SecureLogBucketProps {
   readonly bucketName?: string;
+  readonly changeClassTransition?: StorageClassTransitionProperty;
+}
+
+export interface StorageClassTransitionProperty {
+  readonly infrequentAccessDays: number;
+  readonly intelligentTieringDays: number;
+  readonly glacierDays: number;
+  readonly deepArchiveDays: number;
 }
 
 export class SecureLogBucket extends SecureBucket {
@@ -22,19 +30,19 @@ export class SecureLogBucket extends SecureBucket {
       transitions: [
         {
           storageClass: s3.StorageClass.INFREQUENT_ACCESS,
-          transitionAfter: cdk.Duration.days(60),
+          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.infrequentAccessDays ?? 60),
         },
         {
           storageClass: s3.StorageClass.INTELLIGENT_TIERING,
-          transitionAfter: cdk.Duration.days(120),
+          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.intelligentTieringDays ?? 120),
         },
         {
           storageClass: s3.StorageClass.GLACIER,
-          transitionAfter: cdk.Duration.days(180),
+          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.glacierDays ?? 180),
         },
         {
           storageClass: s3.StorageClass.DEEP_ARCHIVE,
-          transitionAfter: cdk.Duration.days(360),
+          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.deepArchiveDays ?? 360),
         },
       ],
     });
