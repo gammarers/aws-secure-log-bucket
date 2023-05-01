@@ -6,12 +6,12 @@ secure multiple transition phases in a single lifecycle policy bucket.
 
 The storage class will be changed with the following lifecycle configuration.
 
-| Storage Class       | Transition after days |
-| ------------------- | --------------------- |
-| INFREQUENT_ACCESS   | 60 days               |
-| INTELLIGENT_TIERING | 120 days              |
-| GLACIER             | 180 days              |
-| DEEP_ARCHIVE        | 360 days              |
+| Storage Class       | Defaul transition after days |
+| ------------------- |------------------------------|
+| INFREQUENT_ACCESS   | 60 days                      |
+| INTELLIGENT_TIERING | 120 days                     |
+| GLACIER             | 180 days                     |
+| DEEP_ARCHIVE        | 360 days                     |
 
 ## Install
 
@@ -1173,6 +1173,7 @@ const secureLogBucketProps: SecureLogBucketProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@yicr/aws-secure-log-bucket.SecureLogBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@yicr/aws-secure-log-bucket.SecureLogBucketProps.property.changeClassTransition">changeClassTransition</a></code> | <code><a href="#@yicr/aws-secure-log-bucket.StorageClassTransitionProperty">StorageClassTransitionProperty</a></code> | *No description.* |
 
 ---
 
@@ -1183,6 +1184,77 @@ public readonly bucketName: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `changeClassTransition`<sup>Optional</sup> <a name="changeClassTransition" id="@yicr/aws-secure-log-bucket.SecureLogBucketProps.property.changeClassTransition"></a>
+
+```typescript
+public readonly changeClassTransition: StorageClassTransitionProperty;
+```
+
+- *Type:* <a href="#@yicr/aws-secure-log-bucket.StorageClassTransitionProperty">StorageClassTransitionProperty</a>
+
+---
+
+### StorageClassTransitionProperty <a name="StorageClassTransitionProperty" id="@yicr/aws-secure-log-bucket.StorageClassTransitionProperty"></a>
+
+#### Initializer <a name="Initializer" id="@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.Initializer"></a>
+
+```typescript
+import { StorageClassTransitionProperty } from '@yicr/aws-secure-log-bucket'
+
+const storageClassTransitionProperty: StorageClassTransitionProperty = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.deepArchiveDays">deepArchiveDays</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.glacierDays">glacierDays</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.infrequentAccessDays">infrequentAccessDays</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.intelligentTieringDays">intelligentTieringDays</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `deepArchiveDays`<sup>Required</sup> <a name="deepArchiveDays" id="@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.deepArchiveDays"></a>
+
+```typescript
+public readonly deepArchiveDays: number;
+```
+
+- *Type:* number
+
+---
+
+##### `glacierDays`<sup>Required</sup> <a name="glacierDays" id="@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.glacierDays"></a>
+
+```typescript
+public readonly glacierDays: number;
+```
+
+- *Type:* number
+
+---
+
+##### `infrequentAccessDays`<sup>Required</sup> <a name="infrequentAccessDays" id="@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.infrequentAccessDays"></a>
+
+```typescript
+public readonly infrequentAccessDays: number;
+```
+
+- *Type:* number
+
+---
+
+##### `intelligentTieringDays`<sup>Required</sup> <a name="intelligentTieringDays" id="@yicr/aws-secure-log-bucket.StorageClassTransitionProperty.property.intelligentTieringDays"></a>
+
+```typescript
+public readonly intelligentTieringDays: number;
+```
+
+- *Type:* number
 
 ---
 
