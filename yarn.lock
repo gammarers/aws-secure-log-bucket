@@ -1101,10 +1101,10 @@
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.8.tgz#d0d11511cbc1de77e53342ad1546a4d487d6ea72"
   integrity sha512-0LNz4EY8B/8xXY86wMrQ4tz6zEHZv9ehFMJPm8u2gq5lQ71cfRKdaKyxfJAx5aUoyzx0qzgURblTisPGgz3d+Q==
 
-"@yicr/aws-secure-bucket@^0.5.9":
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/@yicr/aws-secure-bucket/-/aws-secure-bucket-0.5.9.tgz#e7ea9d877d2fbb078533393e0f2f34eaaa3ab996"
-  integrity sha512-hfIDhN70rADEn5kV2FN7DnBeYxEILvM/kpVDsR75k/u92gMx7VovR0ZdVgB0lDOdJjqiSugtYQNyDwJzQ2fq3Q==
+"@yicr/aws-secure-bucket@^0.5.10":
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/@yicr/aws-secure-bucket/-/aws-secure-bucket-0.5.10.tgz#01608bc54599c612502469a1a28b3591f84ffc69"
+  integrity sha512-i7pzgRZtVAeQ2eADZfefn2mvJFt2zsgrEGP0slnKk40Qq8noHz0KhhD/341b72zeMD79jGk8/I7FJ0BXTObF7w==
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -5333,10 +5333,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.71.109:
-  version "0.71.109"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.109.tgz#02d11b60006851040642d6a645743b0fdce9f53b"
-  integrity sha512-/a3o+uxILqcWQPwNVfhJ7jkS5cb7aP8fBtqeI3y90RPvyHJxGBDCDdyBNEwG8+TLAHYTLIk+0RfkyjG7OYXDMQ==
+projen@^0.71.110:
+  version "0.71.110"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.110.tgz#07bf7f129bb3fd6a85661ef894681f1d018d252e"
+  integrity sha512-tR+sfb7gaUQ/qLkipvXW2Sp4UHiiVlODWnBtgJvsBtw8e3JzIEr2BTa+6vUcSIWjtMP3jHfCVoFhOLGkzUFaDg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
