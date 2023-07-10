@@ -50,7 +50,7 @@ describe('SecureLogBucket Testing', () => {
         LifecycleConfiguration: {
           Rules: Match.arrayEquals([
             Match.objectEquals({
-              Id: 'ArchiveStepLifeCycle',
+              Id: 'archive-step-lifecycle-rule',
               Status: 'Enabled',
               Transitions: Match.arrayEquals([
                 Match.objectEquals({
@@ -110,7 +110,7 @@ describe('SecureLogBucket Testing', () => {
         LifecycleConfiguration: {
           Rules: Match.arrayEquals([
             Match.objectEquals({
-              Id: 'ArchiveStepLifeCycle',
+              Id: 'archive-step-lifecycle-rule',
               Status: 'Enabled',
               Transitions: Match.arrayEquals([
                 Match.objectEquals({

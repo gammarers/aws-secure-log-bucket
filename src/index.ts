@@ -21,30 +21,28 @@ export class SecureLogBucket extends SecureBucket {
     super(scope, id, {
       bucketName: props?.bucketName,
       encryption: SecureBucketEncryption.KMS_MANAGED,
-    });
-
-    // 👇Add Lifecycle rule.
-    this.addLifecycleRule({
-      id: 'ArchiveStepLifeCycle',
-      enabled: true,
-      transitions: [
-        {
-          storageClass: s3.StorageClass.INFREQUENT_ACCESS,
-          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.infrequentAccessDays ?? 60),
-        },
-        {
-          storageClass: s3.StorageClass.INTELLIGENT_TIERING,
-          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.intelligentTieringDays ?? 120),
-        },
-        {
-          storageClass: s3.StorageClass.GLACIER,
-          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.glacierDays ?? 180),
-        },
-        {
-          storageClass: s3.StorageClass.DEEP_ARCHIVE,
-          transitionAfter: cdk.Duration.days(props?.changeClassTransition?.deepArchiveDays ?? 360),
-        },
-      ],
+      lifecycleRules: [{
+        id: 'archive-step-lifecycle-rule',
+        enabled: true,
+        transitions: [
+          {
+            storageClass: s3.StorageClass.INFREQUENT_ACCESS,
+            transitionAfter: cdk.Duration.days(props?.changeClassTransition?.infrequentAccessDays ?? 60),
+          },
+          {
+            storageClass: s3.StorageClass.INTELLIGENT_TIERING,
+            transitionAfter: cdk.Duration.days(props?.changeClassTransition?.intelligentTieringDays ?? 120),
+          },
+          {
+            storageClass: s3.StorageClass.GLACIER,
+            transitionAfter: cdk.Duration.days(props?.changeClassTransition?.glacierDays ?? 180),
+          },
+          {
+            storageClass: s3.StorageClass.DEEP_ARCHIVE,
+            transitionAfter: cdk.Duration.days(props?.changeClassTransition?.deepArchiveDays ?? 360),
+          },
+        ],
+      }],
     });
   }
 }
