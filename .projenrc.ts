@@ -5,16 +5,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   cdkVersion: '2.61.0',
   defaultReleaseBranch: 'main',
-  name: '@yicr/aws-secure-log-bucket',
+  name: 'aws-secure-log-bucket',
   description: 'secure multiple transition phases in a single lifecycle policy bucket.',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'lifecycle', 'log'],
   projenrcTs: true,
   repositoryUrl: 'https://github.com/yicr/aws-secure-log-bucket.git',
-  deps: [
-    '@yicr/aws-secure-bucket',
+  devDeps: [
+    'aws-secure-bucket',
   ],
   peerDeps: [
-    '@yicr/aws-secure-bucket',
+    'aws-secure-bucket',
   ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
@@ -29,6 +29,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   autoApproveOptions: {
     secret: 'GITHUB_TOKEN',
     allowedUsernames: ['yicr'],
+  },
+  publishToPypi: {
+    distName: 'aws-secure-log-bucket',
+    module: 'aws_secure_log_bucket',
   },
 });
 project.synth();

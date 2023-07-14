@@ -18,21 +18,27 @@ The storage class will be changed with the following lifecycle configuration.
 ### TypeScript
 
 ```shell
-npm install @yicr/aws-secure-log-bucket
+npm install aws-secure-log-bucket
 ```
 or
 ```shell
-yarn add @yicr/aws-secure-log-bucket
+yarn add aws-secure-log-bucket
+```
+
+### Python
+
+```shell
+pip install aws-secure-log-bucket
 ```
 
 ## Example
 
 ```shell
-npm install @yicr/aws-secure-log-bucket
+npm install aws-secure-log-bucket
 ```
 
 ```typescript
-import { SecureLogBucket } from '@yicr/aws-secure-log-bucket';
+import { SecureLogBucket } from 'aws-secure-log-bucket';
 
 new SecureLogBucket(stack, 'SecureLogBucket');
 ```
