@@ -10,11 +10,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'lifecycle', 'log'],
   projenrcTs: true,
   repositoryUrl: 'https://github.com/yicr/aws-secure-log-bucket.git',
-  deps: [
-    '@yicr/aws-secure-bucket',
+  devDeps: [
+    'aws-secure-bucket',
   ],
   peerDeps: [
-    '@yicr/aws-secure-bucket',
+    'aws-secure-bucket',
   ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
