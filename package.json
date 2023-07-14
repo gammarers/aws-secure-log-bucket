@@ -1,5 +1,5 @@
 {
-  "name": "@yicr/aws-secure-log-bucket",
+  "name": "aws-secure-log-bucket",
   "description": "secure multiple transition phases in a single lifecycle policy bucket.",
   "repository": {
     "type": "git",
@@ -85,9 +85,6 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
