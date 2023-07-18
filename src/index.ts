@@ -1,6 +1,6 @@
+import { SecureBucket, SecureBucketEncryption } from '@gammarer/aws-secure-bucket';
 import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
-import { SecureBucket, SecureBucketEncryption } from 'aws-secure-bucket';
 import { Construct } from 'constructs';
 
 export interface SecureLogBucketProps {
