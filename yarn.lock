@@ -358,6 +358,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.44.0.tgz#961a5903c74139390478bdc808bcde3fc45ab7af"
   integrity sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==
 
+"@gammarer/aws-secure-bucket@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@gammarer/aws-secure-bucket/-/aws-secure-bucket-0.9.0.tgz#684aeaa4fdc06669683b82b1dd45e4a1471a8028"
+  integrity sha512-Rj3Whxo1p3g5z8KXxPdrrYn+O5nBcA5+iRU8sQ/M9/OzqkYMhH0t2TdgY/WgzaeUB4qiBbWpKu9Y8tR5ZYlgMg==
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.10.tgz#5a3ffe32cc9306365fb3fd572596cd602d5e12d2"
@@ -1391,11 +1396,6 @@ aws-cdk-lib@2.61.0:
     punycode "^2.2.0"
     semver "^7.3.8"
     yaml "1.10.2"
-
-aws-secure-bucket@0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/aws-secure-bucket/-/aws-secure-bucket-0.7.1.tgz#67223be732161781849d83aa7bcbd2a4ea4d0038"
-  integrity sha512-t7XC1URHr9/qVmkF81tZwzfZmfRty/TobEZCbUHJrWX1zkin7deIxWWeAydqlKqb+wb2xhLOMt0sBKXE8oNWiA==
 
 babel-jest@^27.5.1:
   version "27.5.1"
