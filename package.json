@@ -1,5 +1,5 @@
 {
-  "name": "aws-secure-log-bucket",
+  "name": "@gammarer/aws-secure-log-bucket",
   "description": "secure multiple transition phases in a single lifecycle policy bucket.",
   "repository": {
     "type": "git",
@@ -41,7 +41,6 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.61.0",
-    "aws-secure-bucket": "0.7.1",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -62,9 +61,12 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
+    "@gammarer/aws-secure-bucket": "^0.9.0",
     "aws-cdk-lib": "^2.61.0",
-    "aws-secure-bucket": "^0.7.1",
     "constructs": "^10.0.5"
+  },
+  "dependencies": {
+    "@gammarer/aws-secure-bucket": "^0.9.0"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
@@ -84,6 +86,9 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
@@ -131,8 +136,8 @@
     "outdir": "dist",
     "targets": {
       "python": {
-        "distName": "aws-secure-log-bucket",
-        "module": "aws_secure_log_bucket"
+        "distName": "gammarer.aws-secure-log-bucket",
+        "module": "gammarer.aws_secure_log_bucket"
       }
     },
     "tsc": {
