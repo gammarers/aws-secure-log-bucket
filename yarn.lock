@@ -358,10 +358,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.44.0.tgz#961a5903c74139390478bdc808bcde3fc45ab7af"
   integrity sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==
 
-"@gammarer/aws-secure-bucket@^0.9.5":
-  version "0.9.5"
-  resolved "https://registry.yarnpkg.com/@gammarer/aws-secure-bucket/-/aws-secure-bucket-0.9.5.tgz#f3831dda4ebb0b12a51a99ade8645899cba6431d"
-  integrity sha512-hXKHti8ij8g9BsSOpJMeVy36IDLK7cX7XBieHhVX4mrTCdkf2yIV9pHUWf6D1OqojLPtQexz3rpJrkKtE9nvKw==
+"@gammarer/aws-secure-bucket@^0.9.6":
+  version "0.9.6"
+  resolved "https://registry.yarnpkg.com/@gammarer/aws-secure-bucket/-/aws-secure-bucket-0.9.6.tgz#fcb532f9fa794adf4f5a20bdeccd45684a6565f3"
+  integrity sha512-ImJlvHv+rHwcZOKNCxl5cg40MgSuzgTwhEVwJP0OAGcTQDSAvt/xS+kpZgIDQYV7CRTcdi3qxSP2U21pd54HtA==
 
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
@@ -815,9 +815,9 @@
     tuf-js "^1.1.7"
 
 "@sindresorhus/is@^5.2.0":
-  version "5.5.2"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-5.5.2.tgz#cbfd816d556b941f65d32cfc6d708359b826e7ea"
-  integrity sha512-8ZMK+V6YpeZFfW6hU9uAeWVuq8v3t7BaG276gIO+kVqnAcLrHCXdFUOf7kgouyfAarkZtuavIqY3RsXTsTWviw==
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-5.6.0.tgz#41dd6093d34652cddb5d5bdeee04eafc33826668"
+  integrity sha512-TV7t8GKYaJWsn00tFDqBw8+Uqmr8A0fRU1tvTQhyZzGv0sJCGRQL3JGMI3ucuKo3XIZdUP+Lx7/gh2t3lewy7g==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.6"
@@ -5321,10 +5321,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.71.147:
-  version "0.71.147"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.147.tgz#f809f1786af91d761b25bb6940ca80076f48b050"
-  integrity sha512-xPZl/ZCgoFzOHJx9VFY3/9IamD89kU6N7XTpD1vxp1dNziupIR4dpKklaBPtLSgxaFVRM70dyRW/6PeKNO46pQ==
+projen@^0.71.148:
+  version "0.71.148"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.148.tgz#a741e8ec8eff86701fcadf35ff11c539f6715d91"
+  integrity sha512-oIfQX4LjES0S5AoLeKi6fabEAeNMWRIX9jOL3VGIj1wM3VDofPwW8US6znZrqDeyuyz+ND9UbO7f8mhn2RfNgQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
