@@ -49,6 +49,13 @@ Object {
             },
           ],
         },
+        "OwnershipControls": Object {
+          "Rules": Array [
+            Object {
+              "ObjectOwnership": "BucketOwnerEnforced",
+            },
+          ],
+        },
         "PublicAccessBlockConfiguration": Object {
           "BlockPublicAcls": true,
           "BlockPublicPolicy": true,
@@ -190,6 +197,13 @@ Object {
             },
           ],
         },
+        "OwnershipControls": Object {
+          "Rules": Array [
+            Object {
+              "ObjectOwnership": "BucketOwnerEnforced",
+            },
+          ],
+        },
         "PublicAccessBlockConfiguration": Object {
           "BlockPublicAcls": true,
           "BlockPublicPolicy": true,
@@ -328,6 +342,13 @@ Object {
                   "TransitionInDays": 360,
                 },
               ],
+            },
+          ],
+        },
+        "OwnershipControls": Object {
+          "Rules": Array [
+            Object {
+              "ObjectOwnership": "BucketOwnerEnforced",
             },
           ],
         },
