@@ -1,4 +1,4 @@
-import { SecureBucket, SecureBucketEncryption } from '@gammarer/aws-secure-bucket';
+import { SecureBucket, SecureBucketEncryption, SecureObjectOwnership } from '@gammarer/aws-secure-bucket';
 import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
@@ -6,6 +6,7 @@ import { Construct } from 'constructs';
 export interface SecureLogBucketProps {
   readonly bucketName?: string;
   readonly changeClassTransition?: StorageClassTransitionProperty;
+  readonly objectOwnership?: SecureObjectOwnership;
 }
 
 export interface StorageClassTransitionProperty {
@@ -21,6 +22,8 @@ export class SecureLogBucket extends SecureBucket {
     super(scope, id, {
       bucketName: props?.bucketName,
       encryption: SecureBucketEncryption.KMS_MANAGED,
+      versioned: true,
+      objectOwnership: props?.objectOwnership,
       lifecycleRules: [{
         id: 'archive-step-lifecycle-rule',
         enabled: true,
