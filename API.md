@@ -19,9 +19,7 @@ The storage class will be changed with the following lifecycle configuration.
 
 ```shell
 npm install @gammarer/aws-secure-log-bucket
-```
-or
-```shell
+# or
 yarn add @gammarer/aws-secure-log-bucket
 ```
 
@@ -32,10 +30,6 @@ pip install gammarer.aws-secure-log-bucket
 ```
 
 ## Example
-
-```shell
-npm install @gammarer/aws-secure-log-bucket
-```
 
 ```typescript
 import { SecureLogBucket } from '@gammarer/aws-secure-log-bucket';
@@ -1180,6 +1174,7 @@ const secureLogBucketProps: SecureLogBucketProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.changeClassTransition">changeClassTransition</a></code> | <code><a href="#@gammarer/aws-secure-log-bucket.StorageClassTransitionProperty">StorageClassTransitionProperty</a></code> | *No description.* |
+| <code><a href="#@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.objectOwnership">objectOwnership</a></code> | <code>@gammarer/aws-secure-bucket.SecureObjectOwnership</code> | *No description.* |
 
 ---
 
@@ -1200,6 +1195,16 @@ public readonly changeClassTransition: StorageClassTransitionProperty;
 ```
 
 - *Type:* <a href="#@gammarer/aws-secure-log-bucket.StorageClassTransitionProperty">StorageClassTransitionProperty</a>
+
+---
+
+##### `objectOwnership`<sup>Optional</sup> <a name="objectOwnership" id="@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.objectOwnership"></a>
+
+```typescript
+public readonly objectOwnership: SecureObjectOwnership;
+```
+
+- *Type:* @gammarer/aws-secure-bucket.SecureObjectOwnership
 
 ---
 
