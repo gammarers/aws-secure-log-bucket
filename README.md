@@ -19,9 +19,7 @@ The storage class will be changed with the following lifecycle configuration.
 
 ```shell
 npm install @gammarer/aws-secure-log-bucket
-```
-or
-```shell
+# or
 yarn add @gammarer/aws-secure-log-bucket
 ```
 
@@ -32,10 +30,6 @@ pip install gammarer.aws-secure-log-bucket
 ```
 
 ## Example
-
-```shell
-npm install @gammarer/aws-secure-log-bucket
-```
 
 ```typescript
 import { SecureLogBucket } from '@gammarer/aws-secure-log-bucket';
