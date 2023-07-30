@@ -358,10 +358,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.46.0.tgz#3f7802972e8b6fe3f88ed1aabc74ec596c456db6"
   integrity sha512-a8TLtmPi8xzPkCbp/OGFUo5yhRkHM2Ko9kOWP4znJr0WAhWyThaw3PnwX4vOTWOAMsV2uRt32PPDcEz63esSaA==
 
-"@gammarer/aws-secure-bucket@^0.10.3":
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/@gammarer/aws-secure-bucket/-/aws-secure-bucket-0.10.3.tgz#7aec93991a9f2d7152e8defcb90503d82d1cdb87"
-  integrity sha512-5zTry3HYNeqMuum7iYMtzKgLYtAIJuhKOZBcklE1CqRNpjTbTn+NicFZOBGEFMTZ4z7XwgPOmu4/Gt0lpbkTnQ==
+"@gammarer/aws-secure-bucket@^0.10.4":
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/@gammarer/aws-secure-bucket/-/aws-secure-bucket-0.10.4.tgz#a3a9008217e7daf6182c2baf95782e57c984b1e8"
+  integrity sha512-5CehacZSn1mz/f+1eZsrP9i+BLB0VSh9CmtTsLjbGuM5uKjee9HlF9oW1N71XhbJ82dRMuPOdH1++TN/227qnA==
 
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
@@ -5354,10 +5354,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.71.155:
-  version "0.71.155"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.155.tgz#0571824fd46828cf1162a71a073cb998a1f8e8f3"
-  integrity sha512-yOXfNZ7CWY4BKFtWthvInrTKb0/OHOL/gwZz/6oV/WSfZkVmbseNNBNm+ffdONsJ8OT6PYkd/ITJ30ihGSE2pA==
+projen@^0.71.156:
+  version "0.71.156"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.156.tgz#ccabe219df4be76176dd8228d3b741883007e207"
+  integrity sha512-tMZrT65pfX4YSUWBWM+N4To+TxfJ2Pd62m2Q/HqSY7lAJnXNoGD9xnPUEwLc/oZRU2DN6C2F1JFgKzDRhs5MqA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
