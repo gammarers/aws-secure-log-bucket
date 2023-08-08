@@ -119,6 +119,7 @@
     },
     {
       "name": "@gammarer/aws-secure-bucket",
+      "version": "^0.11.3",
       "type": "peer"
     },
     {
@@ -133,6 +134,7 @@
     },
     {
       "name": "@gammarer/aws-secure-bucket",
+      "version": "^0.11.3",
       "type": "runtime"
     }
   ],
