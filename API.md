@@ -29,6 +29,17 @@ yarn add @gammarer/aws-secure-log-bucket
 pip install gammarer.aws-secure-log-bucket
 ```
 
+### Java
+
+Add the following to pom.xml:
+
+```xml
+<dependency>
+  <groupId>com.gammarer</groupId>
+  <artifactId>aws-secure-log-bucket</artifactId>
+</dependency>
+```
+
 ## Example
 
 ```typescript
