@@ -15,7 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@gammarer/aws-secure-bucket@^0.11.3',
   ],
   peerDeps: [
-    '@gammarer/aws-secure-bucket@^0.11.3',
+    '@gammarer/aws-secure-bucket',
   ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
