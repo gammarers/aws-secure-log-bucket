@@ -62,7 +62,7 @@
     "typescript": "4.x"
   },
   "peerDependencies": {
-    "@gammarer/aws-secure-bucket": "^0.11.3",
+    "@gammarer/aws-secure-bucket": "^0.12.0",
     "aws-cdk-lib": "^2.80.0",
     "constructs": "^10.0.5"
   },
