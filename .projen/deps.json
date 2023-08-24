@@ -101,12 +101,12 @@
     },
     {
       "name": "typescript",
-      "version": "4.9.x",
+      "version": "4.x",
       "type": "build"
     },
     {
       "name": "@gammarer/aws-secure-bucket",
-      "version": "~0.12.0",
+      "version": "0.12.*",
       "type": "peer"
     },
     {
@@ -121,7 +121,7 @@
     },
     {
       "name": "@gammarer/aws-secure-bucket",
-      "version": "~0.12.0",
+      "version": "0.12.*",
       "type": "runtime"
     }
   ],
