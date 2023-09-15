@@ -11,7 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   description: 'secure multiple transition phases in a single lifecycle policy bucket.',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'lifecycle', 'log'],
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/yicr/aws-secure-log-bucket.git',
+  repositoryUrl: 'https://github.com/gammarer/aws-secure-log-bucket.git',
   deps: [
     '@gammarer/aws-secure-bucket@~0.12.4',
   ],

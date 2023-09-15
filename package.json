@@ -3,7 +3,7 @@
   "description": "secure multiple transition phases in a single lifecycle policy bucket.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yicr/aws-secure-log-bucket.git"
+    "url": "https://github.com/gammarer/aws-secure-log-bucket.git"
   },
   "scripts": {
     "build": "npx projen build",
