@@ -37,6 +37,12 @@ yarn add @gammarer/aws-secure-log-bucket
 pip install gammarer.aws-secure-log-bucket
 ```
 
+### C# / .NET
+
+```shell
+dotnet add package Gammarer.CDK.AWS.SecureLogBucket
+```
+
 ### Java
 
 Add the following to pom.xml:
