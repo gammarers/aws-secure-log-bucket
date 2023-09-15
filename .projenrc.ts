@@ -11,16 +11,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
   description: 'secure multiple transition phases in a single lifecycle policy bucket.',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'lifecycle', 'log'],
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/yicr/aws-secure-log-bucket.git',
+  repositoryUrl: 'https://github.com/gammarer/aws-secure-log-bucket.git',
   deps: [
-    '@gammarer/aws-secure-bucket@~0.12.4',
+    '@gammarer/aws-secure-bucket@~0.13.0',
   ],
   peerDeps: [
-    '@gammarer/aws-secure-bucket@~0.12.4',
+    '@gammarer/aws-secure-bucket@~0.13.0',
   ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
-  minNodeVersion: '18.0.0',
+  minNodeVersion: '16.0.0',
   workflowNodeVersion: '18.17.1',
   depsUpgradeOptions: {
     workflowOptions: {
@@ -41,6 +41,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     javaPackage: 'com.gammarer.cdk.aws.secure_log_bucket',
     mavenArtifactId: 'aws-secure-log-bucket',
     mavenEndpoint: 'https://s01.oss.sonatype.org',
+  },
+  publishToNuget: {
+    dotNetNamespace: 'Gammarer.CDK.AWS',
+    packageId: 'Gammarer.CDK.AWS.SecureLogBucket',
   },
 });
 project.synth();

@@ -6,7 +6,7 @@
     },
     {
       "name": "@types/node",
-      "version": "^18",
+      "version": "^16",
       "type": "build"
     },
     {
@@ -106,7 +106,7 @@
     },
     {
       "name": "@gammarer/aws-secure-bucket",
-      "version": "~0.12.4",
+      "version": "~0.13.0",
       "type": "peer"
     },
     {
@@ -121,7 +121,7 @@
     },
     {
       "name": "@gammarer/aws-secure-bucket",
-      "version": "~0.12.4",
+      "version": "~0.13.0",
       "type": "runtime"
     }
   ],
