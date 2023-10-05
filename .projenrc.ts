@@ -13,6 +13,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'lifecycle', 'log'],
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarer/aws-secure-log-bucket.git',
+  majorVersion: 1,
   deps: [
     '@gammarer/aws-secure-bucket@~0.13.0',
   ],
