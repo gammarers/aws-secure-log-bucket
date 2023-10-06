@@ -3,7 +3,7 @@ import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { SecureLogBucket } from '../src';
 
-describe('SecureLogBucket default Testing', () => {
+describe('SecureLogBucket specific Testing', () => {
 
   const stack = new Stack(new App(), 'TestingStack', {
     env: {
@@ -12,7 +12,15 @@ describe('SecureLogBucket default Testing', () => {
     },
   });
 
-  const bucket = new SecureLogBucket(stack, 'SecureLogBucket');
+  const bucket = new SecureLogBucket(stack, 'SecureLogBucket', {
+    bucketName: 'example-log-bucket',
+    changeClassTransition: {
+      infrequentAccessDays: 20,
+      intelligentTieringDays: 40,
+      glacierDays: 60,
+      deepArchiveDays: 80,
+    },
+  });
 
   it('Is Bucket', () => {
     expect(bucket).toBeInstanceOf(s3.Bucket);
@@ -20,29 +28,7 @@ describe('SecureLogBucket default Testing', () => {
 
   const template = Template.fromStack(stack);
 
-  it('Should have encryption', () => {
-    template.hasResourceProperties('AWS::S3::Bucket', {
-      BucketEncryption: Match.objectEquals({
-        ServerSideEncryptionConfiguration: [
-          {
-            ServerSideEncryptionByDefault: {
-              SSEAlgorithm: 'aws:kms',
-            },
-          },
-        ],
-      }),
-    });
-  });
-
-  it('Should versioning enabled', () => {
-    template.hasResourceProperties('AWS::S3::Bucket', {
-      VersioningConfiguration: Match.objectEquals({
-        Status: 'Enabled',
-      }),
-    });
-  });
-
-  it('Should exist lifecycle', () => {
+  it('Should match lifecycle', () => {
     template.hasResourceProperties('AWS::S3::Bucket', {
       LifecycleConfiguration: {
         Rules: Match.arrayEquals([
@@ -52,19 +38,19 @@ describe('SecureLogBucket default Testing', () => {
             Transitions: Match.arrayEquals([
               Match.objectEquals({
                 StorageClass: 'STANDARD_IA',
-                TransitionInDays: 60,
+                TransitionInDays: 20,
               }),
               Match.objectEquals({
                 StorageClass: 'INTELLIGENT_TIERING',
-                TransitionInDays: 120,
+                TransitionInDays: 40,
               }),
               Match.objectEquals({
                 StorageClass: 'GLACIER',
-                TransitionInDays: 180,
+                TransitionInDays: 60,
               }),
               Match.objectEquals({
                 StorageClass: 'DEEP_ARCHIVE',
-                TransitionInDays: 360,
+                TransitionInDays: 80,
               }),
             ]),
           }),
