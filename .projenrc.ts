@@ -5,8 +5,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   authorOrganization: true,
   cdkVersion: '2.80.0',
-  typescriptVersion: '4.9.x',
-  jsiiVersion: '~5.0.0',
+  constructsVersion: '10.0.5',
+  jsiiVersion: '5.1.x',
+  typescriptVersion: '5.1.x',
   defaultReleaseBranch: 'main',
   name: '@gammarer/aws-secure-log-bucket',
   description: 'secure multiple transition phases in a single lifecycle policy bucket.',
@@ -14,16 +15,17 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarer/aws-secure-log-bucket.git',
   majorVersion: 1,
-  deps: [
-    '@gammarer/aws-secure-bucket@~1.0.0',
+  devDeps: [
+    '@gammarer/aws-secure-bucket@~1.1.0',
   ],
   peerDeps: [
-    '@gammarer/aws-secure-bucket@~1.0.0',
+    '@gammarer/aws-secure-bucket@~1.1.0',
   ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   minNodeVersion: '16.0.0',
-  workflowNodeVersion: '18.17.1',
+  workflowNodeVersion: '20.11.0',
+  depsUpgrade: true,
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
