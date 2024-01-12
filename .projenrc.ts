@@ -5,6 +5,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   authorOrganization: true,
   cdkVersion: '2.80.0',
+  constructsVersion: '10.0.5',
   jsiiVersion: '5.1.x',
   typescriptVersion: '5.1.x',
   defaultReleaseBranch: 'main',
@@ -24,6 +25,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   minNodeVersion: '16.0.0',
   workflowNodeVersion: '20.11.0',
+  depsUpgrade: true,
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
