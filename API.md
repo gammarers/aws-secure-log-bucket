@@ -1137,6 +1137,7 @@ const secureLogBucketProps: SecureLogBucketProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.changeClassTransition">changeClassTransition</a></code> | <code><a href="#@gammarer/aws-secure-log-bucket.StorageClassTransitionProperty">StorageClassTransitionProperty</a></code> | *No description.* |
+| <code><a href="#@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.encryption">encryption</a></code> | <code>@gammarer/aws-secure-bucket.SecureBucketEncryption</code> | *No description.* |
 | <code><a href="#@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.objectOwnership">objectOwnership</a></code> | <code>@gammarer/aws-secure-bucket.SecureObjectOwnership</code> | *No description.* |
 
 ---
@@ -1158,6 +1159,16 @@ public readonly changeClassTransition: StorageClassTransitionProperty;
 ```
 
 - *Type:* <a href="#@gammarer/aws-secure-log-bucket.StorageClassTransitionProperty">StorageClassTransitionProperty</a>
+
+---
+
+##### `encryption`<sup>Optional</sup> <a name="encryption" id="@gammarer/aws-secure-log-bucket.SecureLogBucketProps.property.encryption"></a>
+
+```typescript
+public readonly encryption: SecureBucketEncryption;
+```
+
+- *Type:* @gammarer/aws-secure-bucket.SecureBucketEncryption
 
 ---
 
