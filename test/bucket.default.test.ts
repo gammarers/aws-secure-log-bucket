@@ -26,7 +26,7 @@ describe('SecureLogBucket default Testing', () => {
         ServerSideEncryptionConfiguration: [
           {
             ServerSideEncryptionByDefault: {
-              SSEAlgorithm: 'aws:kms',
+              SSEAlgorithm: 'AES256',
             },
           },
         ],
