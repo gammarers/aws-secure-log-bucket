@@ -1,3 +1,4 @@
+import { SecureBucketEncryption } from '@gammarer/aws-secure-bucket';
 import { App, Stack } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
@@ -14,6 +15,7 @@ describe('SecureLogBucket specific Testing', () => {
 
   const bucket = new SecureLogBucket(stack, 'SecureLogBucket', {
     bucketName: 'example-log-bucket',
+    encryption: SecureBucketEncryption.KMS_MANAGED,
     changeClassTransition: {
       infrequentAccessDays: 20,
       intelligentTieringDays: 40,
@@ -28,7 +30,21 @@ describe('SecureLogBucket specific Testing', () => {
 
   const template = Template.fromStack(stack);
 
-  it('Should match lifecycle', () => {
+  it('Should have specific encryption', () => {
+    template.hasResourceProperties('AWS::S3::Bucket', {
+      BucketEncryption: Match.objectEquals({
+        ServerSideEncryptionConfiguration: [
+          {
+            ServerSideEncryptionByDefault: {
+              SSEAlgorithm: 'aws:kms',
+            },
+          },
+        ],
+      }),
+    });
+  });
+
+  it('Should match specific lifecycle', () => {
     template.hasResourceProperties('AWS::S3::Bucket', {
       LifecycleConfiguration: {
         Rules: Match.arrayEquals([
