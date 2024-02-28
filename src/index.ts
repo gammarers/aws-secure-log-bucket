@@ -5,6 +5,7 @@ import { Construct } from 'constructs';
 
 export interface SecureLogBucketProps {
   readonly bucketName?: string;
+  readonly encryption?: SecureBucketEncryption;
   readonly changeClassTransition?: StorageClassTransitionProperty;
   readonly objectOwnership?: SecureObjectOwnership;
 }
@@ -21,7 +22,7 @@ export class SecureLogBucket extends SecureBucket {
   constructor(scope: Construct, id: string, props?: SecureLogBucketProps) {
     super(scope, id, {
       bucketName: props?.bucketName,
-      encryption: SecureBucketEncryption.KMS_MANAGED,
+      encryption: props?.encryption ?? SecureBucketEncryption.S3_MANAGED,
       versioned: true,
       objectOwnership: props?.objectOwnership,
       lifecycleRules: [{
