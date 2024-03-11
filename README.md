@@ -1,3 +1,5 @@
+# AWS Secure Log Bucket
+
 [![GitHub](https://img.shields.io/github/license/yicr/aws-secure-log-bucket?style=flat-square)](https://github.com/yicr/aws-secure-log-bucket/blob/main/LICENSE)
 [![npm (scoped)](https://img.shields.io/npm/v/@gammarer/aws-secure-log-bucket?style=flat-square)](https://www.npmjs.com/package/@gammarer/aws-secure-log-bucket)
 [![PyPI](https://img.shields.io/pypi/v/gammarer.aws-secure-log-bucket?style=flat-square)](https://pypi.org/project/gammarer.aws-secure-log-bucket/)
@@ -6,7 +8,7 @@
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/yicr/aws-secure-log-bucket/release.yml?branch=main&label=release&style=flat-square)](https://github.com/yicr/aws-secure-log-bucket/actions/workflows/release.yml)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/yicr/aws-secure-log-bucket?sort=semver&style=flat-square)](https://github.com/yicr/aws-secure-log-bucket/releases)
 
-# AWS Secure Log Bucket
+[![View on Construct Hub](https://constructs.dev/badge?package=@gammarer/aws-secure-log-bucket)](https://constructs.dev/packages/@gammarer/aws-secure-log-bucket)
 
 secure multiple transition phases in a single lifecycle policy bucket.
 
