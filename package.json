@@ -141,8 +141,8 @@
         }
       },
       "python": {
-        "distName": "gammarer.aws-secure-log-bucket",
-        "module": "gammarer.aws_secure_log_bucket"
+        "distName": "gammarers.aws-secure-log-bucket",
+        "module": "gammarers.aws_secure_log_bucket"
       },
       "dotnet": {
         "namespace": "Gammarer.CDK.AWS",
