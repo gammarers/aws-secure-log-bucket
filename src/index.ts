@@ -1,4 +1,4 @@
-import { SecureBucket, SecureBucketEncryption, SecureObjectOwnership } from '@gammarer/aws-secure-bucket';
+import { SecureBucket, SecureBucketEncryption, SecureObjectOwnership } from '@gammarers/aws-secure-bucket';
 import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
