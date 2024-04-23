@@ -40,12 +40,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'gammarers.aws-secure-log-bucket',
     module: 'gammarers.aws_secure_log_bucket',
   },
-  publishToMaven: {
-    mavenGroupId: 'com.gammarer',
-    javaPackage: 'com.gammarer.cdk.aws.secure_log_bucket',
-    mavenArtifactId: 'aws-secure-log-bucket',
-    mavenEndpoint: 'https://s01.oss.sonatype.org',
-  },
   publishToNuget: {
     dotNetNamespace: 'Gammarers.CDK.AWS',
     packageId: 'Gammarers.CDK.AWS.SecureLogBucket',
