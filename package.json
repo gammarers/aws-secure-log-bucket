@@ -145,8 +145,8 @@
         "module": "gammarers.aws_secure_log_bucket"
       },
       "dotnet": {
-        "namespace": "Gammarer.CDK.AWS",
-        "packageId": "Gammarer.CDK.AWS.SecureLogBucket"
+        "namespace": "Gammarers.CDK.AWS",
+        "packageId": "Gammarers.CDK.AWS.SecureLogBucket"
       }
     },
     "tsc": {
