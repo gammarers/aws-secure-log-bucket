@@ -1,4 +1,4 @@
-import { SecureBucketEncryption } from '@gammarer/aws-secure-bucket';
+import { SecureBucketEncryption } from '@gammarers/aws-secure-bucket';
 import { App, Stack } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
