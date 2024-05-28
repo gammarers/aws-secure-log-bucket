@@ -26,10 +26,25 @@ The storage class will be changed with the following lifecycle configuration.
 
 ### TypeScript
 
+#### install by npm
+
 ```shell
 npm install @gammarers/aws-secure-log-bucket
-# or
+```
+#### install by yarn
+
+```shell
 yarn add @gammarers/aws-secure-log-bucket
+```
+#### install by pnpm
+
+```shell
+pnpm add @gammarers/aws-secure-log-bucket
+```
+#### install by bun
+
+```shell
+bun add @gammarers/aws-secure-log-bucket
 ```
 
 ### Python
