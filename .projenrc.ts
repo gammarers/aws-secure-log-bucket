@@ -16,10 +16,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/gammarers/aws-secure-log-bucket.git',
   majorVersion: 1,
   deps: [
-    '@gammarers/aws-secure-bucket@~1.3.1',
+    '@gammarers/aws-secure-bucket@~1.4.1',
   ],
   peerDeps: [
-    '@gammarers/aws-secure-bucket@~1.3.1',
+    '@gammarers/aws-secure-bucket@~1.4.1',
   ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
