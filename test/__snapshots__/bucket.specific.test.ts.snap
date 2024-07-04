@@ -35,10 +35,6 @@ exports[`SecureLogBucket specific Testing Should match snapshot 1`] = `
                   "TransitionInDays": 20,
                 },
                 {
-                  "StorageClass": "INTELLIGENT_TIERING",
-                  "TransitionInDays": 40,
-                },
-                {
                   "StorageClass": "GLACIER",
                   "TransitionInDays": 60,
                 },
@@ -47,6 +43,11 @@ exports[`SecureLogBucket specific Testing Should match snapshot 1`] = `
                   "TransitionInDays": 80,
                 },
               ],
+            },
+            {
+              "ExpirationInDays": 990,
+              "Id": "delete-object-lifecycle-rule",
+              "Status": "Enabled",
             },
           ],
         },
