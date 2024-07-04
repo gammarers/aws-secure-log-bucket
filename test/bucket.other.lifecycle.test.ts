@@ -3,7 +3,7 @@ import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { SecureLogBucket } from '../src';
 
-describe('SecureLogBucket specific Testing', () => {
+describe('SecureLogBucket Other Lifecycle & disable all Testing', () => {
 
   const stack = new Stack(new App(), 'TestingStack', {
     env: {
@@ -24,16 +24,13 @@ describe('SecureLogBucket specific Testing', () => {
     ],
     lifecycleStorageClassTransition: {
       transitionStepInfrequentAccess: {
-        enabled: true,
-        days: 20,
+        enabled: false,
       },
       transitionStepGlacier: {
-        enabled: true,
-        days: 60,
+        enabled: false,
       },
       transitionStepDeepArchive: {
-        enabled: true,
-        days: 80,
+        enabled: false,
       },
     },
   });
@@ -44,42 +41,10 @@ describe('SecureLogBucket specific Testing', () => {
 
   const template = Template.fromStack(stack);
 
-  it('Should have specific encryption', () => {
-    template.hasResourceProperties('AWS::S3::Bucket', {
-      BucketEncryption: Match.objectEquals({
-        ServerSideEncryptionConfiguration: [
-          {
-            ServerSideEncryptionByDefault: {
-              SSEAlgorithm: 'aws:kms',
-            },
-          },
-        ],
-      }),
-    });
-  });
-
-  it('Should match specific lifecycle & other lifecycle', () => {
+  it('Should match other lifecycle', () => {
     template.hasResourceProperties('AWS::S3::Bucket', {
       LifecycleConfiguration: {
         Rules: Match.arrayEquals([
-          Match.objectEquals({
-            Id: 'archive-step-lifecycle-rule',
-            Status: 'Enabled',
-            Transitions: Match.arrayEquals([
-              Match.objectEquals({
-                StorageClass: 'STANDARD_IA',
-                TransitionInDays: 20,
-              }),
-              Match.objectEquals({
-                StorageClass: 'GLACIER',
-                TransitionInDays: 60,
-              }),
-              Match.objectEquals({
-                StorageClass: 'DEEP_ARCHIVE',
-                TransitionInDays: 80,
-              }),
-            ]),
-          }),
           Match.objectEquals({
             Id: 'delete-object-lifecycle-rule',
             Status: 'Enabled',

@@ -52,19 +52,15 @@ describe('SecureLogBucket default Testing', () => {
             Transitions: Match.arrayEquals([
               Match.objectEquals({
                 StorageClass: 'STANDARD_IA',
-                TransitionInDays: 60,
-              }),
-              Match.objectEquals({
-                StorageClass: 'INTELLIGENT_TIERING',
-                TransitionInDays: 120,
+                TransitionInDays: 400,
               }),
               Match.objectEquals({
                 StorageClass: 'GLACIER',
-                TransitionInDays: 180,
+                TransitionInDays: 720,
               }),
               Match.objectEquals({
                 StorageClass: 'DEEP_ARCHIVE',
-                TransitionInDays: 360,
+                TransitionInDays: 980,
               }),
             ]),
           }),

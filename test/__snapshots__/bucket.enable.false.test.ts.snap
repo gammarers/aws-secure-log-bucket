@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SecureLogBucket default Testing Should match snapshot 1`] = `
+exports[`SecureLogBucket Transition All false Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -18,33 +18,12 @@ exports[`SecureLogBucket default Testing Should match snapshot 1`] = `
           "ServerSideEncryptionConfiguration": [
             {
               "ServerSideEncryptionByDefault": {
-                "SSEAlgorithm": "AES256",
+                "SSEAlgorithm": "aws:kms",
               },
             },
           ],
         },
-        "LifecycleConfiguration": {
-          "Rules": [
-            {
-              "Id": "archive-step-lifecycle-rule",
-              "Status": "Enabled",
-              "Transitions": [
-                {
-                  "StorageClass": "STANDARD_IA",
-                  "TransitionInDays": 400,
-                },
-                {
-                  "StorageClass": "GLACIER",
-                  "TransitionInDays": 720,
-                },
-                {
-                  "StorageClass": "DEEP_ARCHIVE",
-                  "TransitionInDays": 980,
-                },
-              ],
-            },
-          ],
-        },
+        "BucketName": "example-log-bucket",
         "OwnershipControls": {
           "Rules": [
             {

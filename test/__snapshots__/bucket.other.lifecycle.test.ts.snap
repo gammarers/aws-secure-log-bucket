@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SecureLogBucket default Testing Should match snapshot 1`] = `
+exports[`SecureLogBucket Other Lifecycle & disable all Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -18,30 +18,18 @@ exports[`SecureLogBucket default Testing Should match snapshot 1`] = `
           "ServerSideEncryptionConfiguration": [
             {
               "ServerSideEncryptionByDefault": {
-                "SSEAlgorithm": "AES256",
+                "SSEAlgorithm": "aws:kms",
               },
             },
           ],
         },
+        "BucketName": "example-log-bucket",
         "LifecycleConfiguration": {
           "Rules": [
             {
-              "Id": "archive-step-lifecycle-rule",
+              "ExpirationInDays": 990,
+              "Id": "delete-object-lifecycle-rule",
               "Status": "Enabled",
-              "Transitions": [
-                {
-                  "StorageClass": "STANDARD_IA",
-                  "TransitionInDays": 400,
-                },
-                {
-                  "StorageClass": "GLACIER",
-                  "TransitionInDays": 720,
-                },
-                {
-                  "StorageClass": "DEEP_ARCHIVE",
-                  "TransitionInDays": 980,
-                },
-              ],
             },
           ],
         },
