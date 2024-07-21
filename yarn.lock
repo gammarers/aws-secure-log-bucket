@@ -361,9 +361,9 @@
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
 "@gammarers/aws-secure-bucket@~2.0.1":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@gammarers/aws-secure-bucket/-/aws-secure-bucket-2.0.4.tgz#371b0cb47a1febe2f66339cc8ca3fff62d633515"
-  integrity sha512-XaqFYs+/pfIkWK5H4FPEpPUvFMo9yO+VbZvHtlr+xBwOwQ12D0qHZOecBrvc2G+vKPTEZLdkcWzV61bmIN6Xrw==
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@gammarers/aws-secure-bucket/-/aws-secure-bucket-2.0.5.tgz#55c8c759efd49a864e965c2ae4af99afb0e2042e"
+  integrity sha512-skMWTVhmKqDumL5Mm1YZGx/sRL7FS3sdhHtpg89v0GKR2pDJ3euro5ei4wO6f6cDXo59cU5Dby2rHjITcFmWqA==
 
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
@@ -4923,9 +4923,9 @@ typescript@5.4.x, typescript@~5.4:
   integrity sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==
 
 typescript@next:
-  version "5.6.0-dev.20240720"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240720.tgz#7a53fce109b11590c0be73757e28766cb2736aa0"
-  integrity sha512-Ge3ruIOs9B3a2ePioDbn5kGuR+ImXQiPceXKaKXt/Ak8yQxtaOzcC+KkrjKBhaKdT95bDeHMAZZ1hnlvnX7XVw==
+  version "5.6.0-dev.20240721"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240721.tgz#5ccad727badcfa6a9f270752c327cf4725382a12"
+  integrity sha512-W6nC7VqNlG2tS+FhLE7yyvjm1WnIu/fWfrDBQy9dLEzQohE4CwEhy6WLTWrsMADLfmLERlnW8PjQEoC63u2zDg==
 
 uglify-js@^3.1.4:
   version "3.19.0"
