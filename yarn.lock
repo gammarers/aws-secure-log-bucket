@@ -360,10 +360,10 @@
   dependencies:
     levn "^0.4.1"
 
-"@gammarers/aws-secure-bucket@~2.0.1":
-  version "2.0.29"
-  resolved "https://registry.yarnpkg.com/@gammarers/aws-secure-bucket/-/aws-secure-bucket-2.0.29.tgz#25c03d01c265b0bf4d28b64e621252547a135db3"
-  integrity sha512-mgG+NLqyUOzYR4yu3p9p6eQEupshwoGRcSlbI/ctvj4tFOJWURTJMq76VlsqdGJyI+9Q4H+YO6s2/EkRogeNbw==
+"@gammarers/aws-secure-bucket@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@gammarers/aws-secure-bucket/-/aws-secure-bucket-2.1.0.tgz#ca7a3be7db0208f376b723f25a3d1ebd70c8fe9f"
+  integrity sha512-FZI0UEumrgbe0QjxUuF1TOk1sqTHhdGEfyAp5Y0zZoGdH+JukKUNattQRtXp5RROHW+sUOuAkl2uk+jfvPF18w==
 
 "@humanfs/core@^0.19.1":
   version "0.19.1"

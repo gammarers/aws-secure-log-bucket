@@ -61,12 +61,12 @@
     "typescript": "5.5.x"
   },
   "peerDependencies": {
-    "@gammarers/aws-secure-bucket": "~2.0.1",
+    "@gammarers/aws-secure-bucket": "^2.1.0",
     "aws-cdk-lib": "^2.80.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@gammarers/aws-secure-bucket": "~2.0.1"
+    "@gammarers/aws-secure-bucket": "^2.1.0"
   },
   "keywords": [
     "aws",
