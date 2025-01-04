@@ -66,12 +66,12 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "5.5.x",
+      "version": "5.7.x",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "5.5.x",
+      "version": "5.7.x",
       "type": "build"
     },
     {
@@ -88,12 +88,12 @@
     },
     {
       "name": "typescript",
-      "version": "5.5.x",
+      "version": "5.7.x",
       "type": "build"
     },
     {
       "name": "@gammarers/aws-secure-bucket",
-      "version": "~2.0.1",
+      "version": "^2.1.0",
       "type": "peer"
     },
     {
@@ -108,7 +108,7 @@
     },
     {
       "name": "@gammarers/aws-secure-bucket",
-      "version": "~2.0.1",
+      "version": "^2.1.0",
       "type": "runtime"
     }
   ],

@@ -6,8 +6,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorOrganization: true,
   cdkVersion: '2.80.0',
   constructsVersion: '10.0.5',
-  typescriptVersion: '5.5.x',
-  jsiiVersion: '5.5.x',
+  typescriptVersion: '5.7.x',
+  jsiiVersion: '5.7.x',
   defaultReleaseBranch: 'main',
   name: '@gammarers/aws-secure-log-bucket',
   description: 'secure multiple transition phases in a single lifecycle policy bucket.',
@@ -16,20 +16,20 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/gammarers/aws-secure-log-bucket.git',
   majorVersion: 2,
   deps: [
-    '@gammarers/aws-secure-bucket@~2.0.1',
+    '@gammarers/aws-secure-bucket@^2.1.0',
   ],
   peerDeps: [
-    '@gammarers/aws-secure-bucket@~2.0.1',
+    '@gammarers/aws-secure-bucket@^2.1.0',
   ],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   minNodeVersion: '16.0.0',
-  workflowNodeVersion: '22.4.x',
+  workflowNodeVersion: '22.x',
   depsUpgrade: true,
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * 0']), // // every sunday (JST/MON:03:00)
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['8 17 * * 0']), // // every sunday (JST/MON:03:00)
     },
   },
   autoApproveOptions: {

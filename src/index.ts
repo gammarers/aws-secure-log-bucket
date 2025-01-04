@@ -1,5 +1,6 @@
 import { SecureBucket, SecureBucketProps } from '@gammarers/aws-secure-bucket';
 import * as cdk from 'aws-cdk-lib';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
@@ -14,8 +15,14 @@ export interface LifecycleStorageClassTransition {
   readonly transitionStepDeepArchive?: TransitionStep;
 }
 
+export interface VPCFlowLog {
+  readonly enable?: boolean;
+  readonly bucketObjectKeyPrefix?: string[];
+}
+
 export interface SecureLogBucketProps extends SecureBucketProps {
   readonly lifecycleStorageClassTransition?: LifecycleStorageClassTransition;
+  readonly vpcFlowLog?: VPCFlowLog;
 }
 
 const TRANSITION_INFREQUENT_ACCESS_DEFAULT_DAYS: number = 400;
@@ -40,9 +47,16 @@ export class SecureLogBucket extends SecureBucket {
         // transition infrequent access
         if (props?.lifecycleStorageClassTransition?.transitionStepInfrequentAccess) {
           const transitionStep = props.lifecycleStorageClassTransition.transitionStepInfrequentAccess;
-          if (transitionStep && (transitionStep?.enabled !== false)) {
+          const enabled = (() => {
+            console.log(transitionStep?.enabled == undefined);
+            if (transitionStep?.enabled == undefined) {
+              return true;
+            }
+            return transitionStep?.enabled;
+          })();
+          if (enabled) {
             // enable & days?
-            transitions.push(crateTransition(s3.StorageClass.INFREQUENT_ACCESS, transitionStep.days ?? TRANSITION_INFREQUENT_ACCESS_DEFAULT_DAYS));
+            transitions.push(crateTransition(s3.StorageClass.INFREQUENT_ACCESS, transitionStep.days || TRANSITION_INFREQUENT_ACCESS_DEFAULT_DAYS));
           }
         } else {
           // default: 400 days
@@ -51,9 +65,15 @@ export class SecureLogBucket extends SecureBucket {
         // transition glacier
         if (props?.lifecycleStorageClassTransition?.transitionStepGlacier) {
           const transitionStep = props.lifecycleStorageClassTransition.transitionStepGlacier;
-          if (transitionStep && (transitionStep?.enabled !== false)) {
+          const enabled = (() => {
+            if (transitionStep?.enabled === undefined) {
+              return true;
+            }
+            return transitionStep?.enabled;
+          })();
+          if (enabled) {
             // enable
-            transitions.push(crateTransition(s3.StorageClass.GLACIER, transitionStep.days ?? TRANSITION_GLACIER_DEFAULT_DAYS));
+            transitions.push(crateTransition(s3.StorageClass.GLACIER, transitionStep.days || TRANSITION_GLACIER_DEFAULT_DAYS));
           }
         } else {
           // default: 720 days
@@ -62,9 +82,15 @@ export class SecureLogBucket extends SecureBucket {
         // transition deep archive
         if (props?.lifecycleStorageClassTransition?.transitionStepDeepArchive) {
           const transitionStep = props.lifecycleStorageClassTransition.transitionStepDeepArchive;
-          if (transitionStep && (transitionStep?.enabled !== false)) {
+          const enabled = (() => {
+            if (transitionStep?.enabled === undefined) {
+              return true;
+            }
+            return transitionStep?.enabled;
+          })();
+          if (enabled) {
             // enable
-            transitions.push(crateTransition(s3.StorageClass.DEEP_ARCHIVE, transitionStep.days ?? TRANSITION_DEEP_ARCHIVE_DEFAULT_DAYS));
+            transitions.push(crateTransition(s3.StorageClass.DEEP_ARCHIVE, transitionStep.days || TRANSITION_DEEP_ARCHIVE_DEFAULT_DAYS));
           }
         } else {
           // default: 980 days
@@ -91,5 +117,49 @@ export class SecureLogBucket extends SecureBucket {
         return undefined;
       })(),
     });
+
+    // 👇 Get current account
+    const account = cdk.Stack.of(this).account;
+
+    if (props?.vpcFlowLog) {
+      const enable = props?.vpcFlowLog.enable || false;
+      if (enable) {
+        // 👇バケットACLアクセス権
+        this.addToResourcePolicy(new iam.PolicyStatement({
+          effect: iam.Effect.ALLOW,
+          actions: ['s3:GetBucketAcl'],
+          principals: [
+            new iam.ServicePrincipal('delivery.logs.amazonaws.com'),
+          ],
+          resources: [this.bucketArn],
+        }));
+
+        // 👇バケット書き込みアクセス権
+        this.addToResourcePolicy(new iam.PolicyStatement({
+          effect: iam.Effect.ALLOW,
+          actions: ['s3:PutObject'],
+          principals: [
+            new iam.ServicePrincipal('delivery.logs.amazonaws.com'),
+          ],
+          //resources: [`${this.bucketArn}/AWSLogs/${account}/*`],
+          resources: (() => {
+            const objectKeyPrefix = props?.vpcFlowLog.bucketObjectKeyPrefix;
+            if (objectKeyPrefix) {
+              const resources: Array<string> = [];
+              for (const keyPrefix of objectKeyPrefix) {
+                resources.push(`${this.bucketArn}/${keyPrefix}/AWSLogs/${account}/*`);
+              }
+              return resources;
+            }
+            return [`${this.bucketArn}/AWSLogs/${account}/*`];
+          })(),
+          conditions: {
+            StringEquals: {
+              's3:x-amz-acl': 'bucket-owner-full-control',
+            },
+          },
+        }));
+      }
+    }
   }
 }

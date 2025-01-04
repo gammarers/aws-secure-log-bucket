@@ -5,12 +5,7 @@ import { SecureLogBucket } from '../src';
 
 describe('SecureLogBucket Other Lifecycle & disable all Testing', () => {
 
-  const stack = new Stack(new App(), 'TestingStack', {
-    env: {
-      account: '123456789012',
-      region: 'us-east-1',
-    },
-  });
+  const stack = new Stack(new App(), 'TestingStack');
 
   const bucket = new SecureLogBucket(stack, 'SecureLogBucket', {
     bucketName: 'example-log-bucket',
