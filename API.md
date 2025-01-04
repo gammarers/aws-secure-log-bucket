@@ -1214,6 +1214,7 @@ const secureLogBucketProps: SecureLogBucketProps = { ... }
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRedirect">websiteRedirect</a></code> | <code>aws-cdk-lib.aws_s3.RedirectTarget</code> | Specifies the redirect behavior of all requests to a website endpoint of a bucket. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRoutingRules">websiteRoutingRules</a></code> | <code>aws-cdk-lib.aws_s3.RoutingRule[]</code> | Rules that define when a redirect is applied and the redirect behavior. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.lifecycleStorageClassTransition">lifecycleStorageClassTransition</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.LifecycleStorageClassTransition">LifecycleStorageClassTransition</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.vpcFlowLog">vpcFlowLog</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog">VPCFlowLog</a></code> | *No description.* |
 
 ---
 
@@ -1645,6 +1646,16 @@ public readonly lifecycleStorageClassTransition: LifecycleStorageClassTransition
 
 ---
 
+##### `vpcFlowLog`<sup>Optional</sup> <a name="vpcFlowLog" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.vpcFlowLog"></a>
+
+```typescript
+public readonly vpcFlowLog: VPCFlowLog;
+```
+
+- *Type:* <a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog">VPCFlowLog</a>
+
+---
+
 ### TransitionStep <a name="TransitionStep" id="@gammarers/aws-secure-log-bucket.TransitionStep"></a>
 
 #### Initializer <a name="Initializer" id="@gammarers/aws-secure-log-bucket.TransitionStep.Initializer"></a>
@@ -1678,6 +1689,45 @@ public readonly days: number;
 
 ```typescript
 public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### VPCFlowLog <a name="VPCFlowLog" id="@gammarers/aws-secure-log-bucket.VPCFlowLog"></a>
+
+#### Initializer <a name="Initializer" id="@gammarers/aws-secure-log-bucket.VPCFlowLog.Initializer"></a>
+
+```typescript
+import { VPCFlowLog } from '@gammarers/aws-secure-log-bucket'
+
+const vPCFlowLog: VPCFlowLog = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog.property.bucketObjectKeyPrefix">bucketObjectKeyPrefix</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog.property.enable">enable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `bucketObjectKeyPrefix`<sup>Optional</sup> <a name="bucketObjectKeyPrefix" id="@gammarers/aws-secure-log-bucket.VPCFlowLog.property.bucketObjectKeyPrefix"></a>
+
+```typescript
+public readonly bucketObjectKeyPrefix: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `enable`<sup>Optional</sup> <a name="enable" id="@gammarers/aws-secure-log-bucket.VPCFlowLog.property.enable"></a>
+
+```typescript
+public readonly enable: boolean;
 ```
 
 - *Type:* boolean
