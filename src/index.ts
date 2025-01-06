@@ -48,8 +48,7 @@ export class SecureLogBucket extends SecureBucket {
         if (props?.lifecycleStorageClassTransition?.transitionStepInfrequentAccess) {
           const transitionStep = props.lifecycleStorageClassTransition.transitionStepInfrequentAccess;
           const enabled = (() => {
-            console.log(transitionStep?.enabled == undefined);
-            if (transitionStep?.enabled == undefined) {
+            if (transitionStep?.enabled === undefined) {
               return true;
             }
             return transitionStep?.enabled;
