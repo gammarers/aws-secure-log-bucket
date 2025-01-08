@@ -60,10 +60,28 @@ dotnet add package Gammarers.CDK.AWS.SecureLogBucket
 
 ## Example
 
+### Normal log Bucket
+
 ```typescript
 import { SecureLogBucket } from '@gammarers/aws-secure-log-bucket';
 
 new SecureLogBucket(stack, 'SecureLogBucket');
+```
+
+### VPC Flow Log Bucket
+
+```typescript
+import { SecureLogBucket } from '@gammarers/aws-secure-log-bucket';
+
+new SecureLogBucket(stack, 'SecureFlowLogBucket', {
+  vpcFlowLog: {
+    enable: true,
+    bucketObjectKeyPrefix: [
+      'example-prefix-a',
+      'example-prefix-b',
+    ],
+  },
+});
 ```
 
 ## License
