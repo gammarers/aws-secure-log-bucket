@@ -106,49 +106,6 @@ exports[`SecureLogBucket VPC Flow Log specific disabled Testing Should match sna
                 },
               ],
             },
-            {
-              "Action": "s3:GetBucketAcl",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "delivery.logs.amazonaws.com",
-              },
-              "Resource": {
-                "Fn::GetAtt": [
-                  "SecureFlowLogBucketE93329AB",
-                  "Arn",
-                ],
-              },
-            },
-            {
-              "Action": "s3:PutObject",
-              "Condition": {
-                "StringEquals": {
-                  "s3:x-amz-acl": "bucket-owner-full-control",
-                },
-              },
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "delivery.logs.amazonaws.com",
-              },
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    {
-                      "Fn::GetAtt": [
-                        "SecureFlowLogBucketE93329AB",
-                        "Arn",
-                      ],
-                    },
-                    "/AWSLogs/",
-                    {
-                      "Ref": "AWS::AccountId",
-                    },
-                    "/*",
-                  ],
-                ],
-              },
-            },
           ],
           "Version": "2012-10-17",
         },

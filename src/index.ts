@@ -99,7 +99,7 @@ export class SecureLogBucket extends SecureBucket {
     const account = cdk.Stack.of(this).account;
 
     if (props?.vpcFlowLog) {
-      const enable = props.vpcFlowLog.enable ?? true;
+      const enable = props.vpcFlowLog.enable ?? false;
       if (enable) {
         // 👇バケットACLアクセス権
         this.addToResourcePolicy(new iam.PolicyStatement({

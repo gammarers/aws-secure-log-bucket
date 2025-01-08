@@ -1,5 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { Match, Template } from 'aws-cdk-lib/assertions';
+import { Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { SecureLogBucket } from '../src';
 
@@ -18,73 +18,16 @@ describe('SecureLogBucket VPC Flow Log specific disabled Testing', () => {
 
   const template = Template.fromStack(stack);
 
-  it('Should have acl access bucket policy', () => {
-    template.hasResourceProperties('AWS::S3::BucketPolicy', Match.objectEquals({
-      Bucket: {
-        Ref: Match.stringLikeRegexp('SecureFlowLogBucket'),
-      },
-      PolicyDocument: {
-        Version: '2012-10-17',
-        Statement: Match.arrayWith([
-          Match.objectEquals({
-            Action: 's3:GetBucketAcl',
-            Effect: 'Allow',
-            Principal: {
-              Service: 'delivery.logs.amazonaws.com',
-            },
-            Resource: {
-              'Fn::GetAtt': [
-                Match.stringLikeRegexp('SecureFlowLogBucket'),
-                'Arn',
-              ],
-            },
-          }),
-        ]),
-      },
-    }));
-  });
+  it('Should not has does not contain "delivery.logs.amazonaws.com" Principal', () => {
 
-  it('Should have write access bucket policy', () => {
-    template.hasResourceProperties('AWS::S3::BucketPolicy', Match.objectEquals({
-      Bucket: {
-        Ref: Match.stringLikeRegexp('SecureFlowLogBucket'),
-      },
-      PolicyDocument: {
-        Version: '2012-10-17',
-        Statement: Match.arrayWith([
-          Match.objectEquals({
-            Action: 's3:PutObject',
-            Effect: 'Allow',
-            Principal: {
-              Service: 'delivery.logs.amazonaws.com',
-            },
-            Resource: {
-              'Fn::Join': [
-                '',
-                [
-                  {
-                    'Fn::GetAtt': [
-                      Match.stringLikeRegexp('SecureFlowLogBucket'),
-                      'Arn',
-                    ],
-                  },
-                  '/AWSLogs/',
-                  {
-                    Ref: 'AWS::AccountId',
-                  },
-                  '/*',
-                ],
-              ],
-            },
-            Condition: {
-              StringEquals: {
-                's3:x-amz-acl': 'bucket-owner-full-control',
-              },
-            },
-          }),
-        ]),
-      },
-    }));
+    const policies = template.findResources('AWS::S3::BucketPolicy');
+
+    for (const policy of Object.values(policies)) {
+      const statements = policy.Properties?.PolicyDocument?.Statement || [];
+      for (const statement of statements) {
+        expect(statement.Principal?.Service).not.toBe('delivery.logs.amazonaws.com');
+      }
+    }
   });
 
   it('Should match snapshot', () => {
