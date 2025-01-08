@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SecureLogBucket specific transition enabled undefined Testing Should match snapshot 1`] = `
+exports[`SecureLogBucket specific transition enabled days Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {

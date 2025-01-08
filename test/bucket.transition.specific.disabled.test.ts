@@ -3,11 +3,11 @@ import { Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { SecureLogBucket } from '../src';
 
-describe('SecureLogBucket Transition All false Testing', () => {
+describe('SecureLogBucket Transition specific disable Testing', () => {
 
   const stack = new Stack(new App(), 'TestingStack');
 
-  const bucket = new SecureLogBucket(stack, 'SecureLogBucket', {
+  new SecureLogBucket(stack, 'SecureLogBucket', {
     bucketName: 'example-log-bucket',
     encryption: s3.BucketEncryption.KMS_MANAGED,
     lifecycleStorageClassTransition: {
@@ -21,10 +21,6 @@ describe('SecureLogBucket Transition All false Testing', () => {
         enabled: false,
       },
     },
-  });
-
-  it('Is Bucket', () => {
-    expect(bucket).toBeInstanceOf(s3.Bucket);
   });
 
   const template = Template.fromStack(stack);

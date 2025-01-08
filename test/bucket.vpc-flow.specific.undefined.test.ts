@@ -3,15 +3,13 @@ import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { SecureLogBucket } from '../src';
 
-describe('SecureFlowLogBucket default Testing', () => {
+describe('SecureLogBucket VPC Flow Log specific disabled Testing', () => {
 
   const app = new App();
   const stack = new Stack(app, 'TestingStack');
 
   const bucket = new SecureLogBucket(stack, 'SecureFlowLogBucket', {
-    vpcFlowLog: {
-      enable: true,
-    },
+    vpcFlowLog: {},
   });
 
   it('Is Bucket', () => {

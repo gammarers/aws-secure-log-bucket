@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SecureLogBucket specific transition enabled true Testing Should match snapshot 1`] = `
+exports[`SecureLogBucket VPC Flow Log specific enable Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -10,7 +10,7 @@ exports[`SecureLogBucket specific transition enabled true Testing Should match s
     },
   },
   "Resources": {
-    "SecureLogBucket2F892D14": {
+    "SecureFlowLogBucketE93329AB": {
       "DeletionPolicy": "Retain",
       "Properties": {
         "AccessControl": "Private",
@@ -18,12 +18,11 @@ exports[`SecureLogBucket specific transition enabled true Testing Should match s
           "ServerSideEncryptionConfiguration": [
             {
               "ServerSideEncryptionByDefault": {
-                "SSEAlgorithm": "aws:kms",
+                "SSEAlgorithm": "AES256",
               },
             },
           ],
         },
-        "BucketName": "example-log-bucket",
         "LifecycleConfiguration": {
           "Rules": [
             {
@@ -66,10 +65,10 @@ exports[`SecureLogBucket specific transition enabled true Testing Should match s
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "SecureLogBucketPolicyD3831FE7": {
+    "SecureFlowLogBucketPolicy21D262DA": {
       "Properties": {
         "Bucket": {
-          "Ref": "SecureLogBucket2F892D14",
+          "Ref": "SecureFlowLogBucketE93329AB",
         },
         "PolicyDocument": {
           "Statement": [
@@ -87,7 +86,7 @@ exports[`SecureLogBucket specific transition enabled true Testing Should match s
               "Resource": [
                 {
                   "Fn::GetAtt": [
-                    "SecureLogBucket2F892D14",
+                    "SecureFlowLogBucketE93329AB",
                     "Arn",
                   ],
                 },
@@ -97,7 +96,7 @@ exports[`SecureLogBucket specific transition enabled true Testing Should match s
                     [
                       {
                         "Fn::GetAtt": [
-                          "SecureLogBucket2F892D14",
+                          "SecureFlowLogBucketE93329AB",
                           "Arn",
                         ],
                       },
@@ -106,6 +105,49 @@ exports[`SecureLogBucket specific transition enabled true Testing Should match s
                   ],
                 },
               ],
+            },
+            {
+              "Action": "s3:GetBucketAcl",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "delivery.logs.amazonaws.com",
+              },
+              "Resource": {
+                "Fn::GetAtt": [
+                  "SecureFlowLogBucketE93329AB",
+                  "Arn",
+                ],
+              },
+            },
+            {
+              "Action": "s3:PutObject",
+              "Condition": {
+                "StringEquals": {
+                  "s3:x-amz-acl": "bucket-owner-full-control",
+                },
+              },
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "delivery.logs.amazonaws.com",
+              },
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "SecureFlowLogBucketE93329AB",
+                        "Arn",
+                      ],
+                    },
+                    "/AWSLogs/",
+                    {
+                      "Ref": "AWS::AccountId",
+                    },
+                    "/*",
+                  ],
+                ],
+              },
             },
           ],
           "Version": "2012-10-17",

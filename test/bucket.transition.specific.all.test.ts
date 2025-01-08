@@ -3,7 +3,7 @@ import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { SecureLogBucket } from '../src';
 
-describe('SecureLogBucket specific transition enabled undefined Testing', () => {
+describe('SecureLogBucket specific all Testing', () => {
 
   const stack = new Stack(new App(), 'TestingStack');
 
@@ -19,12 +19,15 @@ describe('SecureLogBucket specific transition enabled undefined Testing', () => 
     ],
     lifecycleStorageClassTransition: {
       transitionStepInfrequentAccess: {
+        enabled: true,
         days: 20,
       },
       transitionStepGlacier: {
+        enabled: true,
         days: 60,
       },
       transitionStepDeepArchive: {
+        enabled: true,
         days: 80,
       },
     },

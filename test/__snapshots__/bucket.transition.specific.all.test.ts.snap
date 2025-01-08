@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SecureLogBucket specific transition enabled true Testing Should match snapshot 1`] = `
+exports[`SecureLogBucket specific all Testing Should match snapshot 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -32,17 +32,22 @@ exports[`SecureLogBucket specific transition enabled true Testing Should match s
               "Transitions": [
                 {
                   "StorageClass": "STANDARD_IA",
-                  "TransitionInDays": 400,
+                  "TransitionInDays": 20,
                 },
                 {
                   "StorageClass": "GLACIER",
-                  "TransitionInDays": 720,
+                  "TransitionInDays": 60,
                 },
                 {
                   "StorageClass": "DEEP_ARCHIVE",
-                  "TransitionInDays": 980,
+                  "TransitionInDays": 80,
                 },
               ],
+            },
+            {
+              "ExpirationInDays": 990,
+              "Id": "delete-object-lifecycle-rule",
+              "Status": "Enabled",
             },
           ],
         },

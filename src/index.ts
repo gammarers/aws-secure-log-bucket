@@ -47,12 +47,7 @@ export class SecureLogBucket extends SecureBucket {
         // transition infrequent access
         if (props?.lifecycleStorageClassTransition?.transitionStepInfrequentAccess) {
           const transitionStep = props.lifecycleStorageClassTransition.transitionStepInfrequentAccess;
-          const enabled = (() => {
-            if (transitionStep?.enabled === undefined) {
-              return true;
-            }
-            return transitionStep?.enabled;
-          })();
+          const enabled = transitionStep.enabled ?? true;
           if (enabled) {
             // enable & days?
             transitions.push(crateTransition(s3.StorageClass.INFREQUENT_ACCESS, transitionStep.days || TRANSITION_INFREQUENT_ACCESS_DEFAULT_DAYS));
@@ -64,12 +59,7 @@ export class SecureLogBucket extends SecureBucket {
         // transition glacier
         if (props?.lifecycleStorageClassTransition?.transitionStepGlacier) {
           const transitionStep = props.lifecycleStorageClassTransition.transitionStepGlacier;
-          const enabled = (() => {
-            if (transitionStep?.enabled === undefined) {
-              return true;
-            }
-            return transitionStep?.enabled;
-          })();
+          const enabled = transitionStep.enabled ?? true;
           if (enabled) {
             // enable
             transitions.push(crateTransition(s3.StorageClass.GLACIER, transitionStep.days || TRANSITION_GLACIER_DEFAULT_DAYS));
@@ -81,12 +71,7 @@ export class SecureLogBucket extends SecureBucket {
         // transition deep archive
         if (props?.lifecycleStorageClassTransition?.transitionStepDeepArchive) {
           const transitionStep = props.lifecycleStorageClassTransition.transitionStepDeepArchive;
-          const enabled = (() => {
-            if (transitionStep?.enabled === undefined) {
-              return true;
-            }
-            return transitionStep?.enabled;
-          })();
+          const enabled = transitionStep.enabled ?? true;
           if (enabled) {
             // enable
             transitions.push(crateTransition(s3.StorageClass.DEEP_ARCHIVE, transitionStep.days || TRANSITION_DEEP_ARCHIVE_DEFAULT_DAYS));
@@ -97,23 +82,16 @@ export class SecureLogBucket extends SecureBucket {
         }
 
         if (transitions.length > 0) {
-          const lifecycleRules: s3.LifecycleRule[] = [
+          return [
             {
               id: 'archive-step-lifecycle-rule',
               enabled: true,
               transitions,
             },
+            ...(props?.lifecycleRules || []),
           ];
-          if (props?.lifecycleRules) {
-            return lifecycleRules.concat(props.lifecycleRules);
-          }
-          return lifecycleRules;
-        } else {
-          if (props?.lifecycleRules) {
-            return props.lifecycleRules;
-          }
         }
-        return undefined;
+        return props?.lifecycleRules || [];
       })(),
     });
 
@@ -121,7 +99,7 @@ export class SecureLogBucket extends SecureBucket {
     const account = cdk.Stack.of(this).account;
 
     if (props?.vpcFlowLog) {
-      const enable = props?.vpcFlowLog.enable || false;
+      const enable = props.vpcFlowLog.enable ?? true;
       if (enable) {
         // 👇バケットACLアクセス権
         this.addToResourcePolicy(new iam.PolicyStatement({
@@ -142,7 +120,7 @@ export class SecureLogBucket extends SecureBucket {
           ],
           //resources: [`${this.bucketArn}/AWSLogs/${account}/*`],
           resources: (() => {
-            const objectKeyPrefix = props?.vpcFlowLog.bucketObjectKeyPrefix;
+            const objectKeyPrefix = props.vpcFlowLog.bucketObjectKeyPrefix;
             if (objectKeyPrefix) {
               const resources: Array<string> = [];
               for (const keyPrefix of objectKeyPrefix) {

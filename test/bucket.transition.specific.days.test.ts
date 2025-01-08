@@ -1,25 +1,31 @@
-import { App, Stack } from 'aws-cdk-lib';
+import { App, Duration, Stack } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { SecureLogBucket } from '../src';
 
-describe('SecureLogBucket specific transition enabled true Testing', () => {
+describe('SecureLogBucket specific transition enabled days Testing', () => {
 
   const stack = new Stack(new App(), 'TestingStack');
 
   const bucket = new SecureLogBucket(stack, 'SecureLogBucket', {
     bucketName: 'example-log-bucket',
     encryption: s3.BucketEncryption.KMS_MANAGED,
-    lifecycleRules: undefined,
+    lifecycleRules: [
+      {
+        id: 'delete-object-lifecycle-rule',
+        enabled: true,
+        expiration: Duration.days(990),
+      },
+    ],
     lifecycleStorageClassTransition: {
       transitionStepInfrequentAccess: {
-        enabled: true,
+        days: 20,
       },
       transitionStepGlacier: {
-        enabled: true,
+        days: 60,
       },
       transitionStepDeepArchive: {
-        enabled: true,
+        days: 80,
       },
     },
   });
@@ -54,17 +60,22 @@ describe('SecureLogBucket specific transition enabled true Testing', () => {
             Transitions: Match.arrayEquals([
               Match.objectEquals({
                 StorageClass: 'STANDARD_IA',
-                TransitionInDays: 400,
+                TransitionInDays: 20,
               }),
               Match.objectEquals({
                 StorageClass: 'GLACIER',
-                TransitionInDays: 720,
+                TransitionInDays: 60,
               }),
               Match.objectEquals({
                 StorageClass: 'DEEP_ARCHIVE',
-                TransitionInDays: 980,
+                TransitionInDays: 80,
               }),
             ]),
+          }),
+          Match.objectEquals({
+            Id: 'delete-object-lifecycle-rule',
+            Status: 'Enabled',
+            ExpirationInDays: 990,
           }),
         ]),
       },
