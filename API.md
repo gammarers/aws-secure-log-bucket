@@ -1213,6 +1213,7 @@ const secureLogBucketProps: SecureLogBucketProps = { ... }
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteIndexDocument">websiteIndexDocument</a></code> | <code>string</code> | The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRedirect">websiteRedirect</a></code> | <code>aws-cdk-lib.aws_s3.RedirectTarget</code> | Specifies the redirect behavior of all requests to a website endpoint of a bucket. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRoutingRules">websiteRoutingRules</a></code> | <code>aws-cdk-lib.aws_s3.RoutingRule[]</code> | Rules that define when a redirect is applied and the redirect behavior. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.isCloudFrontOriginBucket">isCloudFrontOriginBucket</a></code> | <code>boolean</code> | If your are using it as the CloudFront orign bucket, set it to true. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.isPipelineArtifactBucket">isPipelineArtifactBucket</a></code> | <code>boolean</code> | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.lifecycleStorageClassTransition">lifecycleStorageClassTransition</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.LifecycleStorageClassTransition">LifecycleStorageClassTransition</a></code> | *No description.* |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.vpcFlowLog">vpcFlowLog</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog">VPCFlowLog</a></code> | *No description.* |
@@ -1634,6 +1635,18 @@ public readonly websiteRoutingRules: RoutingRule[];
 - *Default:* No redirection rules.
 
 Rules that define when a redirect is applied and the redirect behavior.
+
+---
+
+##### `isCloudFrontOriginBucket`<sup>Optional</sup> <a name="isCloudFrontOriginBucket" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.isCloudFrontOriginBucket"></a>
+
+```typescript
+public readonly isCloudFrontOriginBucket: boolean;
+```
+
+- *Type:* boolean
+
+If your are using it as the CloudFront orign bucket, set it to true.
 
 ---
 
