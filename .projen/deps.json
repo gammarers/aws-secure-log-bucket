@@ -92,13 +92,8 @@
       "type": "build"
     },
     {
-      "name": "@gammarers/aws-secure-bucket",
-      "version": "^2.1.0",
-      "type": "peer"
-    },
-    {
       "name": "aws-cdk-lib",
-      "version": "^2.80.0",
+      "version": "^2.189.1",
       "type": "peer"
     },
     {
@@ -108,7 +103,7 @@
     },
     {
       "name": "@gammarers/aws-secure-bucket",
-      "version": "^2.1.0",
+      "version": "^2.3.6",
       "type": "runtime"
     }
   ],
