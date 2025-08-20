@@ -20,10 +20,58 @@ export interface VPCFlowLog {
   readonly bucketObjectKeyPrefix?: string[];
 }
 
-export interface SecureLogBucketProps extends SecureBucketProps {
+export enum SecureLogBucketType {
+  NORMAL = 'normal',
+  VPC_FLOW_LOG = 'vpc-flow-log',
+}
+
+// -- delivery.logs.amazonaws.com
+// VPC Flow Logs
+// Network Load Balancer (NLB) Access Logs
+// Route 53 Resolver Query Logs
+// AWS Network Firewall Logs
+// Verified Access Logs
+// VPC Lattice Access Logs
+// Global Accelerator Flow Logs
+// Site-to-Site VPN Logs
+
+// logging.s3.amazonaws.com
+// S3 Access Logs
+
+// logs.<Region>.amazonaws.com
+// CloudWatch Logs Export (CreateExportTask)
+
+interface SecureBaseLogBucketProps extends SecureBucketProps {
+
   readonly lifecycleStorageClassTransition?: LifecycleStorageClassTransition;
+
+  /**
+   * @deprecated This property is deprecated. Use the bucketType property instead.
+   */
   readonly vpcFlowLog?: VPCFlowLog;
 }
+
+export interface SecureNormalLogBucketProps extends SecureBaseLogBucketProps {
+
+  /**
+   * The type of the bucket.
+   * @default SecureLogBucketType.NORMAL
+   */
+  readonly logBucketType?: SecureLogBucketType.NORMAL | undefined;
+}
+
+export interface SecureVpcFlowLogBucketProps extends SecureBaseLogBucketProps {
+  /**
+   * The type of the bucket.
+   */
+  readonly logBucketType: SecureLogBucketType.VPC_FLOW_LOG;
+  /**
+   * The prefix of the bucket object key.
+   */
+  readonly bucketObjectKeyPrefix?: string[];
+}
+
+export type SecureLogBucketProps = SecureNormalLogBucketProps | SecureVpcFlowLogBucketProps;
 
 const TRANSITION_INFREQUENT_ACCESS_DEFAULT_DAYS: number = 400;
 const TRANSITION_GLACIER_DEFAULT_DAYS: number = 720;
@@ -98,8 +146,14 @@ export class SecureLogBucket extends SecureBucket {
     // 👇 Get current account
     const account = cdk.Stack.of(this).account;
 
-    if (props?.vpcFlowLog) {
-      const enable = props.vpcFlowLog.enable ?? false;
+    if (props?.vpcFlowLog || props?.logBucketType === SecureLogBucketType.VPC_FLOW_LOG) {
+      const enable = (() => {
+        if (props?.logBucketType === SecureLogBucketType.VPC_FLOW_LOG) {
+          return true;
+        }
+        return props?.vpcFlowLog?.enable ?? false;
+      })();
+
       if (enable) {
         // 👇バケットACLアクセス権
         this.addToResourcePolicy(new iam.PolicyStatement({
@@ -120,7 +174,15 @@ export class SecureLogBucket extends SecureBucket {
           ],
           //resources: [`${this.bucketArn}/AWSLogs/${account}/*`],
           resources: (() => {
-            const objectKeyPrefix = props.vpcFlowLog.bucketObjectKeyPrefix;
+            const objectKeyPrefix = (() => {
+              if (props?.vpcFlowLog) {
+                return props.vpcFlowLog.bucketObjectKeyPrefix;
+              }
+              if (props?.logBucketType === SecureLogBucketType.VPC_FLOW_LOG) {
+                return props.bucketObjectKeyPrefix;
+              }
+              return undefined;
+            })();
             if (objectKeyPrefix) {
               const resources: Array<string> = [];
               for (const keyPrefix of objectKeyPrefix) {

@@ -5,8 +5,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   authorOrganization: true,
   cdkVersion: '2.189.1',
-  typescriptVersion: '5.7.x',
-  jsiiVersion: '5.7.x',
+  typescriptVersion: '5.8.x',
+  jsiiVersion: '5.8.x',
   defaultReleaseBranch: 'main',
   name: '@gammarers/aws-secure-log-bucket',
   description: 'secure multiple transition phases in a single lifecycle policy bucket.',
@@ -15,7 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/gammarers/aws-secure-log-bucket.git',
   majorVersion: 2,
   deps: [
-    '@gammarers/aws-secure-bucket@^2.3.6',
+    '@gammarers/aws-secure-bucket@^2.4.1',
   ],
   //  peerDeps: [
   //    '@gammarers/aws-secure-bucket@^2.3.6',

@@ -15,11 +15,18 @@ secure multiple transition phases in a single lifecycle policy bucket.
 
 The storage class will be changed with the following lifecycle configuration.
 
-| Storage Class       | Defaul transition after days | 
-| ------------------- |------------------------------| 
-| INFREQUENT_ACCESS   | 400 days                     |
-| GLACIER             | 720 days                     |
-| DEEP_ARCHIVE        | 980 days                     |
+| Storage Class       | Default transition after days |
+| ------------------- |------------------------------ |
+| INFREQUENT_ACCESS   | 400 days                      |
+| GLACIER             | 720 days                      |
+| DEEP_ARCHIVE        | 980 days                      |
+
+## Additional Properties
+
+| **Name** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| logBucketType | SecureLogBucketType | SecureLogBucketType.NORMAL | The type of the bucket. Available types: NORMAL, VPC_FLOW_LOG |
+| vpcFlowLog | VPCFlowLog | - | **⚠️ Deprecated**: This property is deprecated. Use the `logBucketType` property instead. Configuration for VPC Flow Log bucket settings. |
 
 ## Install
 
@@ -30,20 +37,11 @@ The storage class will be changed with the following lifecycle configuration.
 ```shell
 npm install @gammarers/aws-secure-log-bucket
 ```
+
 #### install by yarn
 
 ```shell
 yarn add @gammarers/aws-secure-log-bucket
-```
-#### install by pnpm
-
-```shell
-pnpm add @gammarers/aws-secure-log-bucket
-```
-#### install by bun
-
-```shell
-bun add @gammarers/aws-secure-log-bucket
 ```
 
 ### Python
@@ -74,13 +72,11 @@ new SecureLogBucket(stack, 'SecureLogBucket');
 import { SecureLogBucket } from '@gammarers/aws-secure-log-bucket';
 
 new SecureLogBucket(stack, 'SecureFlowLogBucket', {
-  vpcFlowLog: {
-    enable: true,
-    bucketObjectKeyPrefix: [
-      'example-prefix-a',
-      'example-prefix-b',
-    ],
-  },
+  logBucketType: SecureLogBucketType.VPC_FLOW_LOG,
+  bucketObjectKeyPrefix: [
+    'example-prefix-a',
+    'example-prefix-b',
+  ],
 });
 ```
 

@@ -9,14 +9,14 @@
 ```typescript
 import { SecureLogBucket } from '@gammarers/aws-secure-log-bucket'
 
-new SecureLogBucket(scope: Construct, id: string, props?: SecureLogBucketProps)
+new SecureLogBucket(scope: Construct, id: string, props?: SecureNormalLogBucketProps | SecureVpcFlowLogBucketProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.Initializer.parameter.props">props</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps">SecureLogBucketProps</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.Initializer.parameter.props">props</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps">SecureNormalLogBucketProps</a> \| <a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps">SecureVpcFlowLogBucketProps</a></code> | *No description.* |
 
 ---
 
@@ -34,7 +34,7 @@ new SecureLogBucket(scope: Construct, id: string, props?: SecureLogBucketProps)
 
 ##### `props`<sup>Optional</sup> <a name="props" id="@gammarers/aws-secure-log-bucket.SecureLogBucket.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps">SecureLogBucketProps</a>
+- *Type:* <a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps">SecureNormalLogBucketProps</a> | <a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps">SecureVpcFlowLogBucketProps</a>
 
 ---
 
@@ -1229,61 +1229,63 @@ public readonly transitionStepInfrequentAccess: TransitionStep;
 
 ---
 
-### SecureLogBucketProps <a name="SecureLogBucketProps" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps"></a>
+### SecureNormalLogBucketProps <a name="SecureNormalLogBucketProps" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps"></a>
 
-#### Initializer <a name="Initializer" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.Initializer"></a>
 
 ```typescript
-import { SecureLogBucketProps } from '@gammarers/aws-secure-log-bucket'
+import { SecureNormalLogBucketProps } from '@gammarers/aws-secure-log-bucket'
 
-const secureLogBucketProps: SecureLogBucketProps = { ... }
+const secureNormalLogBucketProps: SecureNormalLogBucketProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.accessControl">accessControl</a></code> | <code>aws-cdk-lib.aws_s3.BucketAccessControl</code> | Specifies a canned ACL that grants predefined permissions to the bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.autoDeleteObjects">autoDeleteObjects</a></code> | <code>boolean</code> | Whether all objects should be automatically deleted when the bucket is removed from the stack or when the stack is deleted. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.blockPublicAccess">blockPublicAccess</a></code> | <code>aws-cdk-lib.aws_s3.BlockPublicAccess</code> | The block public access configuration of this bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.bucketKeyEnabled">bucketKeyEnabled</a></code> | <code>boolean</code> | Whether Amazon S3 should use its own intermediary key to generate data keys. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | Physical name of this bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.cors">cors</a></code> | <code>aws-cdk-lib.aws_s3.CorsRule[]</code> | The CORS configuration of this bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.encryption">encryption</a></code> | <code>aws-cdk-lib.aws_s3.BucketEncryption</code> | The kind of server-side encryption to apply to this bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | External KMS key to use for bucket encryption. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.enforceSSL">enforceSSL</a></code> | <code>boolean</code> | Enforces SSL for requests. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.eventBridgeEnabled">eventBridgeEnabled</a></code> | <code>boolean</code> | Whether this bucket should send notifications to Amazon EventBridge or not. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.aws_s3.IntelligentTieringConfiguration[]</code> | Intelligent Tiering Configurations. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.inventories">inventories</a></code> | <code>aws-cdk-lib.aws_s3.Inventory[]</code> | The inventory configuration of the bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.lifecycleRules">lifecycleRules</a></code> | <code>aws-cdk-lib.aws_s3.LifecycleRule[]</code> | Rules that define how Amazon S3 manages objects during their lifetime. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_s3.BucketMetrics[]</code> | The metrics configuration of this bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.minimumTLSVersion">minimumTLSVersion</a></code> | <code>number</code> | Enforces minimum TLS version for requests. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.notificationsHandlerRole">notificationsHandlerRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The role to be used by the notifications handler. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.notificationsSkipDestinationValidation">notificationsSkipDestinationValidation</a></code> | <code>boolean</code> | Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.objectLockDefaultRetention">objectLockDefaultRetention</a></code> | <code>aws-cdk-lib.aws_s3.ObjectLockRetention</code> | The default retention mode and rules for S3 Object Lock. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.objectLockEnabled">objectLockEnabled</a></code> | <code>boolean</code> | Enable object lock on the bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.objectOwnership">objectOwnership</a></code> | <code>aws-cdk-lib.aws_s3.ObjectOwnership</code> | The objectOwnership of the bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.publicReadAccess">publicReadAccess</a></code> | <code>boolean</code> | Grants public read access to all objects in the bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | Policy to apply when the bucket is removed from this stack. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.replicationRules">replicationRules</a></code> | <code>aws-cdk-lib.aws_s3.ReplicationRule[]</code> | A container for one or more replication rules. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.serverAccessLogsBucket">serverAccessLogsBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Destination bucket for the server access logs. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.serverAccessLogsPrefix">serverAccessLogsPrefix</a></code> | <code>string</code> | Optional log file prefix to use for the bucket's access logs. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.targetObjectKeyFormat">targetObjectKeyFormat</a></code> | <code>aws-cdk-lib.aws_s3.TargetObjectKeyFormat</code> | Optional key format for log objects. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.transferAcceleration">transferAcceleration</a></code> | <code>boolean</code> | Whether this bucket should have transfer acceleration turned on or not. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.transitionDefaultMinimumObjectSize">transitionDefaultMinimumObjectSize</a></code> | <code>aws-cdk-lib.aws_s3.TransitionDefaultMinimumObjectSize</code> | Indicates which default minimum object size behavior is applied to the lifecycle configuration. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.versioned">versioned</a></code> | <code>boolean</code> | Whether this bucket should have versioning turned on or not. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteErrorDocument">websiteErrorDocument</a></code> | <code>string</code> | The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteIndexDocument">websiteIndexDocument</a></code> | <code>string</code> | The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRedirect">websiteRedirect</a></code> | <code>aws-cdk-lib.aws_s3.RedirectTarget</code> | Specifies the redirect behavior of all requests to a website endpoint of a bucket. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRoutingRules">websiteRoutingRules</a></code> | <code>aws-cdk-lib.aws_s3.RoutingRule[]</code> | Rules that define when a redirect is applied and the redirect behavior. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.isCloudFrontOriginBucket">isCloudFrontOriginBucket</a></code> | <code>boolean</code> | If your are using it as the CloudFront orign bucket, set it to true. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.isPipelineArtifactBucket">isPipelineArtifactBucket</a></code> | <code>boolean</code> | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.lifecycleStorageClassTransition">lifecycleStorageClassTransition</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.LifecycleStorageClassTransition">LifecycleStorageClassTransition</a></code> | *No description.* |
-| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.vpcFlowLog">vpcFlowLog</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog">VPCFlowLog</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.accessControl">accessControl</a></code> | <code>aws-cdk-lib.aws_s3.BucketAccessControl</code> | Specifies a canned ACL that grants predefined permissions to the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.autoDeleteObjects">autoDeleteObjects</a></code> | <code>boolean</code> | Whether all objects should be automatically deleted when the bucket is removed from the stack or when the stack is deleted. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.blockPublicAccess">blockPublicAccess</a></code> | <code>aws-cdk-lib.aws_s3.BlockPublicAccess</code> | The block public access configuration of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.bucketKeyEnabled">bucketKeyEnabled</a></code> | <code>boolean</code> | Whether Amazon S3 should use its own intermediary key to generate data keys. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | Physical name of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.cors">cors</a></code> | <code>aws-cdk-lib.aws_s3.CorsRule[]</code> | The CORS configuration of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.encryption">encryption</a></code> | <code>aws-cdk-lib.aws_s3.BucketEncryption</code> | The kind of server-side encryption to apply to this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | External KMS key to use for bucket encryption. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.enforceSSL">enforceSSL</a></code> | <code>boolean</code> | Enforces SSL for requests. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.eventBridgeEnabled">eventBridgeEnabled</a></code> | <code>boolean</code> | Whether this bucket should send notifications to Amazon EventBridge or not. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.aws_s3.IntelligentTieringConfiguration[]</code> | Intelligent Tiering Configurations. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.inventories">inventories</a></code> | <code>aws-cdk-lib.aws_s3.Inventory[]</code> | The inventory configuration of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.lifecycleRules">lifecycleRules</a></code> | <code>aws-cdk-lib.aws_s3.LifecycleRule[]</code> | Rules that define how Amazon S3 manages objects during their lifetime. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_s3.BucketMetrics[]</code> | The metrics configuration of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.minimumTLSVersion">minimumTLSVersion</a></code> | <code>number</code> | Enforces minimum TLS version for requests. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.notificationsHandlerRole">notificationsHandlerRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The role to be used by the notifications handler. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.notificationsSkipDestinationValidation">notificationsSkipDestinationValidation</a></code> | <code>boolean</code> | Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.objectLockDefaultRetention">objectLockDefaultRetention</a></code> | <code>aws-cdk-lib.aws_s3.ObjectLockRetention</code> | The default retention mode and rules for S3 Object Lock. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.objectLockEnabled">objectLockEnabled</a></code> | <code>boolean</code> | Enable object lock on the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.objectOwnership">objectOwnership</a></code> | <code>aws-cdk-lib.aws_s3.ObjectOwnership</code> | The objectOwnership of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.publicReadAccess">publicReadAccess</a></code> | <code>boolean</code> | Grants public read access to all objects in the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | Policy to apply when the bucket is removed from this stack. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.replicationRules">replicationRules</a></code> | <code>aws-cdk-lib.aws_s3.ReplicationRule[]</code> | A container for one or more replication rules. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.serverAccessLogsBucket">serverAccessLogsBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Destination bucket for the server access logs. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.serverAccessLogsPrefix">serverAccessLogsPrefix</a></code> | <code>string</code> | Optional log file prefix to use for the bucket's access logs. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.targetObjectKeyFormat">targetObjectKeyFormat</a></code> | <code>aws-cdk-lib.aws_s3.TargetObjectKeyFormat</code> | Optional key format for log objects. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.transferAcceleration">transferAcceleration</a></code> | <code>boolean</code> | Whether this bucket should have transfer acceleration turned on or not. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.transitionDefaultMinimumObjectSize">transitionDefaultMinimumObjectSize</a></code> | <code>aws-cdk-lib.aws_s3.TransitionDefaultMinimumObjectSize</code> | Indicates which default minimum object size behavior is applied to the lifecycle configuration. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.versioned">versioned</a></code> | <code>boolean</code> | Whether this bucket should have versioning turned on or not. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteErrorDocument">websiteErrorDocument</a></code> | <code>string</code> | The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteIndexDocument">websiteIndexDocument</a></code> | <code>string</code> | The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteRedirect">websiteRedirect</a></code> | <code>aws-cdk-lib.aws_s3.RedirectTarget</code> | Specifies the redirect behavior of all requests to a website endpoint of a bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteRoutingRules">websiteRoutingRules</a></code> | <code>aws-cdk-lib.aws_s3.RoutingRule[]</code> | Rules that define when a redirect is applied and the redirect behavior. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.bucketType">bucketType</a></code> | <code>@gammarers/aws-secure-bucket.SecureBucketType</code> | The type of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.isCloudFrontOriginBucket">isCloudFrontOriginBucket</a></code> | <code>boolean</code> | If your are using it as the CloudFront origin bucket, set it to true. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.isPipelineArtifactBucket">isPipelineArtifactBucket</a></code> | <code>boolean</code> | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.lifecycleStorageClassTransition">lifecycleStorageClassTransition</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.LifecycleStorageClassTransition">LifecycleStorageClassTransition</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.logBucketType">logBucketType</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketType">SecureLogBucketType</a></code> | The type of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.vpcFlowLog">vpcFlowLog</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog">VPCFlowLog</a></code> | *No description.* |
 
 ---
 
-##### `accessControl`<sup>Optional</sup> <a name="accessControl" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.accessControl"></a>
+##### `accessControl`<sup>Optional</sup> <a name="accessControl" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.accessControl"></a>
 
 ```typescript
 public readonly accessControl: BucketAccessControl;
@@ -1296,7 +1298,7 @@ Specifies a canned ACL that grants predefined permissions to the bucket.
 
 ---
 
-##### `autoDeleteObjects`<sup>Optional</sup> <a name="autoDeleteObjects" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.autoDeleteObjects"></a>
+##### `autoDeleteObjects`<sup>Optional</sup> <a name="autoDeleteObjects" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.autoDeleteObjects"></a>
 
 ```typescript
 public readonly autoDeleteObjects: boolean;
@@ -1321,7 +1323,7 @@ prevent race conditions with external bucket writers.
 
 ---
 
-##### `blockPublicAccess`<sup>Optional</sup> <a name="blockPublicAccess" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.blockPublicAccess"></a>
+##### `blockPublicAccess`<sup>Optional</sup> <a name="blockPublicAccess" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.blockPublicAccess"></a>
 
 ```typescript
 public readonly blockPublicAccess: BlockPublicAccess;
@@ -1336,7 +1338,7 @@ The block public access configuration of this bucket.
 
 ---
 
-##### `bucketKeyEnabled`<sup>Optional</sup> <a name="bucketKeyEnabled" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.bucketKeyEnabled"></a>
+##### `bucketKeyEnabled`<sup>Optional</sup> <a name="bucketKeyEnabled" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.bucketKeyEnabled"></a>
 
 ```typescript
 public readonly bucketKeyEnabled: boolean;
@@ -1357,7 +1359,7 @@ Only relevant, when Encryption is not set to `BucketEncryption.UNENCRYPTED`.
 
 ---
 
-##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.bucketName"></a>
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.bucketName"></a>
 
 ```typescript
 public readonly bucketName: string;
@@ -1370,7 +1372,7 @@ Physical name of this bucket.
 
 ---
 
-##### `cors`<sup>Optional</sup> <a name="cors" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.cors"></a>
+##### `cors`<sup>Optional</sup> <a name="cors" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.cors"></a>
 
 ```typescript
 public readonly cors: CorsRule[];
@@ -1385,7 +1387,7 @@ The CORS configuration of this bucket.
 
 ---
 
-##### `encryption`<sup>Optional</sup> <a name="encryption" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.encryption"></a>
+##### `encryption`<sup>Optional</sup> <a name="encryption" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.encryption"></a>
 
 ```typescript
 public readonly encryption: BucketEncryption;
@@ -1401,7 +1403,7 @@ encryption key is not specified, a key will automatically be created.
 
 ---
 
-##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.encryptionKey"></a>
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.encryptionKey"></a>
 
 ```typescript
 public readonly encryptionKey: IKey;
@@ -1417,7 +1419,7 @@ An error will be emitted if `encryption` is set to `UNENCRYPTED` or `S3_MANAGED`
 
 ---
 
-##### `enforceSSL`<sup>Optional</sup> <a name="enforceSSL" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.enforceSSL"></a>
+##### `enforceSSL`<sup>Optional</sup> <a name="enforceSSL" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.enforceSSL"></a>
 
 ```typescript
 public readonly enforceSSL: boolean;
@@ -1434,7 +1436,7 @@ S3.5 of the AWS Foundational Security Best Practices Regarding S3.
 
 ---
 
-##### `eventBridgeEnabled`<sup>Optional</sup> <a name="eventBridgeEnabled" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.eventBridgeEnabled"></a>
+##### `eventBridgeEnabled`<sup>Optional</sup> <a name="eventBridgeEnabled" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.eventBridgeEnabled"></a>
 
 ```typescript
 public readonly eventBridgeEnabled: boolean;
@@ -1447,7 +1449,7 @@ Whether this bucket should send notifications to Amazon EventBridge or not.
 
 ---
 
-##### `intelligentTieringConfigurations`<sup>Optional</sup> <a name="intelligentTieringConfigurations" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.intelligentTieringConfigurations"></a>
+##### `intelligentTieringConfigurations`<sup>Optional</sup> <a name="intelligentTieringConfigurations" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.intelligentTieringConfigurations"></a>
 
 ```typescript
 public readonly intelligentTieringConfigurations: IntelligentTieringConfiguration[];
@@ -1462,7 +1464,7 @@ Intelligent Tiering Configurations.
 
 ---
 
-##### `inventories`<sup>Optional</sup> <a name="inventories" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.inventories"></a>
+##### `inventories`<sup>Optional</sup> <a name="inventories" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.inventories"></a>
 
 ```typescript
 public readonly inventories: Inventory[];
@@ -1477,7 +1479,7 @@ The inventory configuration of the bucket.
 
 ---
 
-##### `lifecycleRules`<sup>Optional</sup> <a name="lifecycleRules" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.lifecycleRules"></a>
+##### `lifecycleRules`<sup>Optional</sup> <a name="lifecycleRules" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.lifecycleRules"></a>
 
 ```typescript
 public readonly lifecycleRules: LifecycleRule[];
@@ -1490,7 +1492,7 @@ Rules that define how Amazon S3 manages objects during their lifetime.
 
 ---
 
-##### `metrics`<sup>Optional</sup> <a name="metrics" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.metrics"></a>
+##### `metrics`<sup>Optional</sup> <a name="metrics" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.metrics"></a>
 
 ```typescript
 public readonly metrics: BucketMetrics[];
@@ -1505,7 +1507,7 @@ The metrics configuration of this bucket.
 
 ---
 
-##### `minimumTLSVersion`<sup>Optional</sup> <a name="minimumTLSVersion" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.minimumTLSVersion"></a>
+##### `minimumTLSVersion`<sup>Optional</sup> <a name="minimumTLSVersion" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.minimumTLSVersion"></a>
 
 ```typescript
 public readonly minimumTLSVersion: number;
@@ -1522,7 +1524,7 @@ Requires `enforceSSL` to be enabled.
 
 ---
 
-##### `notificationsHandlerRole`<sup>Optional</sup> <a name="notificationsHandlerRole" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.notificationsHandlerRole"></a>
+##### `notificationsHandlerRole`<sup>Optional</sup> <a name="notificationsHandlerRole" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.notificationsHandlerRole"></a>
 
 ```typescript
 public readonly notificationsHandlerRole: IRole;
@@ -1535,7 +1537,7 @@ The role to be used by the notifications handler.
 
 ---
 
-##### `notificationsSkipDestinationValidation`<sup>Optional</sup> <a name="notificationsSkipDestinationValidation" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.notificationsSkipDestinationValidation"></a>
+##### `notificationsSkipDestinationValidation`<sup>Optional</sup> <a name="notificationsSkipDestinationValidation" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.notificationsSkipDestinationValidation"></a>
 
 ```typescript
 public readonly notificationsSkipDestinationValidation: boolean;
@@ -1548,7 +1550,7 @@ Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations
 
 ---
 
-##### `objectLockDefaultRetention`<sup>Optional</sup> <a name="objectLockDefaultRetention" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.objectLockDefaultRetention"></a>
+##### `objectLockDefaultRetention`<sup>Optional</sup> <a name="objectLockDefaultRetention" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.objectLockDefaultRetention"></a>
 
 ```typescript
 public readonly objectLockDefaultRetention: ObjectLockRetention;
@@ -1566,7 +1568,7 @@ has object lock enabled. Enabling object lock for existing buckets is not suppor
 
 ---
 
-##### `objectLockEnabled`<sup>Optional</sup> <a name="objectLockEnabled" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.objectLockEnabled"></a>
+##### `objectLockEnabled`<sup>Optional</sup> <a name="objectLockEnabled" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.objectLockEnabled"></a>
 
 ```typescript
 public readonly objectLockEnabled: boolean;
@@ -1584,7 +1586,7 @@ enabled when the bucket is created.
 
 ---
 
-##### `objectOwnership`<sup>Optional</sup> <a name="objectOwnership" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.objectOwnership"></a>
+##### `objectOwnership`<sup>Optional</sup> <a name="objectOwnership" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.objectOwnership"></a>
 
 ```typescript
 public readonly objectOwnership: ObjectOwnership;
@@ -1599,7 +1601,7 @@ The objectOwnership of the bucket.
 
 ---
 
-##### `publicReadAccess`<sup>Optional</sup> <a name="publicReadAccess" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.publicReadAccess"></a>
+##### `publicReadAccess`<sup>Optional</sup> <a name="publicReadAccess" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.publicReadAccess"></a>
 
 ```typescript
 public readonly publicReadAccess: boolean;
@@ -1614,7 +1616,7 @@ Similar to calling `bucket.grantPublicAccess()`
 
 ---
 
-##### `removalPolicy`<sup>Optional</sup> <a name="removalPolicy" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.removalPolicy"></a>
+##### `removalPolicy`<sup>Optional</sup> <a name="removalPolicy" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.removalPolicy"></a>
 
 ```typescript
 public readonly removalPolicy: RemovalPolicy;
@@ -1627,7 +1629,7 @@ Policy to apply when the bucket is removed from this stack.
 
 ---
 
-##### `replicationRules`<sup>Optional</sup> <a name="replicationRules" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.replicationRules"></a>
+##### `replicationRules`<sup>Optional</sup> <a name="replicationRules" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.replicationRules"></a>
 
 ```typescript
 public readonly replicationRules: ReplicationRule[];
@@ -1640,7 +1642,7 @@ A container for one or more replication rules.
 
 ---
 
-##### `serverAccessLogsBucket`<sup>Optional</sup> <a name="serverAccessLogsBucket" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.serverAccessLogsBucket"></a>
+##### `serverAccessLogsBucket`<sup>Optional</sup> <a name="serverAccessLogsBucket" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.serverAccessLogsBucket"></a>
 
 ```typescript
 public readonly serverAccessLogsBucket: IBucket;
@@ -1653,7 +1655,7 @@ Destination bucket for the server access logs.
 
 ---
 
-##### `serverAccessLogsPrefix`<sup>Optional</sup> <a name="serverAccessLogsPrefix" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.serverAccessLogsPrefix"></a>
+##### `serverAccessLogsPrefix`<sup>Optional</sup> <a name="serverAccessLogsPrefix" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.serverAccessLogsPrefix"></a>
 
 ```typescript
 public readonly serverAccessLogsPrefix: string;
@@ -1668,7 +1670,7 @@ If defined without "serverAccessLogsBucket", enables access logs to current buck
 
 ---
 
-##### `targetObjectKeyFormat`<sup>Optional</sup> <a name="targetObjectKeyFormat" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.targetObjectKeyFormat"></a>
+##### `targetObjectKeyFormat`<sup>Optional</sup> <a name="targetObjectKeyFormat" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.targetObjectKeyFormat"></a>
 
 ```typescript
 public readonly targetObjectKeyFormat: TargetObjectKeyFormat;
@@ -1681,7 +1683,7 @@ Optional key format for log objects.
 
 ---
 
-##### `transferAcceleration`<sup>Optional</sup> <a name="transferAcceleration" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.transferAcceleration"></a>
+##### `transferAcceleration`<sup>Optional</sup> <a name="transferAcceleration" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.transferAcceleration"></a>
 
 ```typescript
 public readonly transferAcceleration: boolean;
@@ -1694,7 +1696,7 @@ Whether this bucket should have transfer acceleration turned on or not.
 
 ---
 
-##### `transitionDefaultMinimumObjectSize`<sup>Optional</sup> <a name="transitionDefaultMinimumObjectSize" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.transitionDefaultMinimumObjectSize"></a>
+##### `transitionDefaultMinimumObjectSize`<sup>Optional</sup> <a name="transitionDefaultMinimumObjectSize" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.transitionDefaultMinimumObjectSize"></a>
 
 ```typescript
 public readonly transitionDefaultMinimumObjectSize: TransitionDefaultMinimumObjectSize;
@@ -1711,7 +1713,7 @@ take precedence over the default transition behavior.
 
 ---
 
-##### `versioned`<sup>Optional</sup> <a name="versioned" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.versioned"></a>
+##### `versioned`<sup>Optional</sup> <a name="versioned" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.versioned"></a>
 
 ```typescript
 public readonly versioned: boolean;
@@ -1724,7 +1726,7 @@ Whether this bucket should have versioning turned on or not.
 
 ---
 
-##### `websiteErrorDocument`<sup>Optional</sup> <a name="websiteErrorDocument" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteErrorDocument"></a>
+##### `websiteErrorDocument`<sup>Optional</sup> <a name="websiteErrorDocument" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteErrorDocument"></a>
 
 ```typescript
 public readonly websiteErrorDocument: string;
@@ -1737,7 +1739,7 @@ The name of the error document (e.g. "404.html") for the website. `websiteIndexD
 
 ---
 
-##### `websiteIndexDocument`<sup>Optional</sup> <a name="websiteIndexDocument" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteIndexDocument"></a>
+##### `websiteIndexDocument`<sup>Optional</sup> <a name="websiteIndexDocument" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteIndexDocument"></a>
 
 ```typescript
 public readonly websiteIndexDocument: string;
@@ -1750,7 +1752,7 @@ The name of the index document (e.g. "index.html") for the website. Enables stat
 
 ---
 
-##### `websiteRedirect`<sup>Optional</sup> <a name="websiteRedirect" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRedirect"></a>
+##### `websiteRedirect`<sup>Optional</sup> <a name="websiteRedirect" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteRedirect"></a>
 
 ```typescript
 public readonly websiteRedirect: RedirectTarget;
@@ -1765,7 +1767,7 @@ If you specify this property, you can't specify "websiteIndexDocument", "website
 
 ---
 
-##### `websiteRoutingRules`<sup>Optional</sup> <a name="websiteRoutingRules" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.websiteRoutingRules"></a>
+##### `websiteRoutingRules`<sup>Optional</sup> <a name="websiteRoutingRules" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.websiteRoutingRules"></a>
 
 ```typescript
 public readonly websiteRoutingRules: RoutingRule[];
@@ -1778,19 +1780,37 @@ Rules that define when a redirect is applied and the redirect behavior.
 
 ---
 
-##### `isCloudFrontOriginBucket`<sup>Optional</sup> <a name="isCloudFrontOriginBucket" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.isCloudFrontOriginBucket"></a>
+##### `bucketType`<sup>Optional</sup> <a name="bucketType" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.bucketType"></a>
+
+```typescript
+public readonly bucketType: SecureBucketType;
+```
+
+- *Type:* @gammarers/aws-secure-bucket.SecureBucketType
+- *Default:* SecureBucketType.DEFAULT
+
+The type of the bucket.
+
+---
+
+##### ~~`isCloudFrontOriginBucket`~~<sup>Optional</sup> <a name="isCloudFrontOriginBucket" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.isCloudFrontOriginBucket"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
 
 ```typescript
 public readonly isCloudFrontOriginBucket: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* false
 
-If your are using it as the CloudFront orign bucket, set it to true.
+If your are using it as the CloudFront origin bucket, set it to true.
 
 ---
 
-##### `isPipelineArtifactBucket`<sup>Optional</sup> <a name="isPipelineArtifactBucket" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.isPipelineArtifactBucket"></a>
+##### ~~`isPipelineArtifactBucket`~~<sup>Optional</sup> <a name="isPipelineArtifactBucket" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.isPipelineArtifactBucket"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
 
 ```typescript
 public readonly isPipelineArtifactBucket: boolean;
@@ -1803,7 +1823,7 @@ If you are setting a custom Qualifier and using it as the artifact bucket for th
 
 ---
 
-##### `lifecycleStorageClassTransition`<sup>Optional</sup> <a name="lifecycleStorageClassTransition" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.lifecycleStorageClassTransition"></a>
+##### `lifecycleStorageClassTransition`<sup>Optional</sup> <a name="lifecycleStorageClassTransition" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.lifecycleStorageClassTransition"></a>
 
 ```typescript
 public readonly lifecycleStorageClassTransition: LifecycleStorageClassTransition;
@@ -1813,7 +1833,663 @@ public readonly lifecycleStorageClassTransition: LifecycleStorageClassTransition
 
 ---
 
-##### `vpcFlowLog`<sup>Optional</sup> <a name="vpcFlowLog" id="@gammarers/aws-secure-log-bucket.SecureLogBucketProps.property.vpcFlowLog"></a>
+##### `logBucketType`<sup>Optional</sup> <a name="logBucketType" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.logBucketType"></a>
+
+```typescript
+public readonly logBucketType: SecureLogBucketType;
+```
+
+- *Type:* <a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketType">SecureLogBucketType</a>
+- *Default:* SecureLogBucketType.NORMAL
+
+The type of the bucket.
+
+---
+
+##### ~~`vpcFlowLog`~~<sup>Optional</sup> <a name="vpcFlowLog" id="@gammarers/aws-secure-log-bucket.SecureNormalLogBucketProps.property.vpcFlowLog"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
+
+```typescript
+public readonly vpcFlowLog: VPCFlowLog;
+```
+
+- *Type:* <a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog">VPCFlowLog</a>
+
+---
+
+### SecureVpcFlowLogBucketProps <a name="SecureVpcFlowLogBucketProps" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps"></a>
+
+#### Initializer <a name="Initializer" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.Initializer"></a>
+
+```typescript
+import { SecureVpcFlowLogBucketProps } from '@gammarers/aws-secure-log-bucket'
+
+const secureVpcFlowLogBucketProps: SecureVpcFlowLogBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.accessControl">accessControl</a></code> | <code>aws-cdk-lib.aws_s3.BucketAccessControl</code> | Specifies a canned ACL that grants predefined permissions to the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.autoDeleteObjects">autoDeleteObjects</a></code> | <code>boolean</code> | Whether all objects should be automatically deleted when the bucket is removed from the stack or when the stack is deleted. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.blockPublicAccess">blockPublicAccess</a></code> | <code>aws-cdk-lib.aws_s3.BlockPublicAccess</code> | The block public access configuration of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketKeyEnabled">bucketKeyEnabled</a></code> | <code>boolean</code> | Whether Amazon S3 should use its own intermediary key to generate data keys. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | Physical name of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.cors">cors</a></code> | <code>aws-cdk-lib.aws_s3.CorsRule[]</code> | The CORS configuration of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.encryption">encryption</a></code> | <code>aws-cdk-lib.aws_s3.BucketEncryption</code> | The kind of server-side encryption to apply to this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | External KMS key to use for bucket encryption. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.enforceSSL">enforceSSL</a></code> | <code>boolean</code> | Enforces SSL for requests. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.eventBridgeEnabled">eventBridgeEnabled</a></code> | <code>boolean</code> | Whether this bucket should send notifications to Amazon EventBridge or not. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.aws_s3.IntelligentTieringConfiguration[]</code> | Intelligent Tiering Configurations. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.inventories">inventories</a></code> | <code>aws-cdk-lib.aws_s3.Inventory[]</code> | The inventory configuration of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.lifecycleRules">lifecycleRules</a></code> | <code>aws-cdk-lib.aws_s3.LifecycleRule[]</code> | Rules that define how Amazon S3 manages objects during their lifetime. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_s3.BucketMetrics[]</code> | The metrics configuration of this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.minimumTLSVersion">minimumTLSVersion</a></code> | <code>number</code> | Enforces minimum TLS version for requests. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.notificationsHandlerRole">notificationsHandlerRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The role to be used by the notifications handler. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.notificationsSkipDestinationValidation">notificationsSkipDestinationValidation</a></code> | <code>boolean</code> | Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.objectLockDefaultRetention">objectLockDefaultRetention</a></code> | <code>aws-cdk-lib.aws_s3.ObjectLockRetention</code> | The default retention mode and rules for S3 Object Lock. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.objectLockEnabled">objectLockEnabled</a></code> | <code>boolean</code> | Enable object lock on the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.objectOwnership">objectOwnership</a></code> | <code>aws-cdk-lib.aws_s3.ObjectOwnership</code> | The objectOwnership of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.publicReadAccess">publicReadAccess</a></code> | <code>boolean</code> | Grants public read access to all objects in the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | Policy to apply when the bucket is removed from this stack. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.replicationRules">replicationRules</a></code> | <code>aws-cdk-lib.aws_s3.ReplicationRule[]</code> | A container for one or more replication rules. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.serverAccessLogsBucket">serverAccessLogsBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Destination bucket for the server access logs. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.serverAccessLogsPrefix">serverAccessLogsPrefix</a></code> | <code>string</code> | Optional log file prefix to use for the bucket's access logs. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.targetObjectKeyFormat">targetObjectKeyFormat</a></code> | <code>aws-cdk-lib.aws_s3.TargetObjectKeyFormat</code> | Optional key format for log objects. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.transferAcceleration">transferAcceleration</a></code> | <code>boolean</code> | Whether this bucket should have transfer acceleration turned on or not. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.transitionDefaultMinimumObjectSize">transitionDefaultMinimumObjectSize</a></code> | <code>aws-cdk-lib.aws_s3.TransitionDefaultMinimumObjectSize</code> | Indicates which default minimum object size behavior is applied to the lifecycle configuration. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.versioned">versioned</a></code> | <code>boolean</code> | Whether this bucket should have versioning turned on or not. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteErrorDocument">websiteErrorDocument</a></code> | <code>string</code> | The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteIndexDocument">websiteIndexDocument</a></code> | <code>string</code> | The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteRedirect">websiteRedirect</a></code> | <code>aws-cdk-lib.aws_s3.RedirectTarget</code> | Specifies the redirect behavior of all requests to a website endpoint of a bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteRoutingRules">websiteRoutingRules</a></code> | <code>aws-cdk-lib.aws_s3.RoutingRule[]</code> | Rules that define when a redirect is applied and the redirect behavior. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketType">bucketType</a></code> | <code>@gammarers/aws-secure-bucket.SecureBucketType</code> | The type of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.isCloudFrontOriginBucket">isCloudFrontOriginBucket</a></code> | <code>boolean</code> | If your are using it as the CloudFront origin bucket, set it to true. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.isPipelineArtifactBucket">isPipelineArtifactBucket</a></code> | <code>boolean</code> | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.logBucketType">logBucketType</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketType">SecureLogBucketType</a></code> | The type of the bucket. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketObjectKeyPrefix">bucketObjectKeyPrefix</a></code> | <code>string[]</code> | The prefix of the bucket object key. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.lifecycleStorageClassTransition">lifecycleStorageClassTransition</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.LifecycleStorageClassTransition">LifecycleStorageClassTransition</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.vpcFlowLog">vpcFlowLog</a></code> | <code><a href="#@gammarers/aws-secure-log-bucket.VPCFlowLog">VPCFlowLog</a></code> | *No description.* |
+
+---
+
+##### `accessControl`<sup>Optional</sup> <a name="accessControl" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.accessControl"></a>
+
+```typescript
+public readonly accessControl: BucketAccessControl;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketAccessControl
+- *Default:* BucketAccessControl.PRIVATE
+
+Specifies a canned ACL that grants predefined permissions to the bucket.
+
+---
+
+##### `autoDeleteObjects`<sup>Optional</sup> <a name="autoDeleteObjects" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.autoDeleteObjects"></a>
+
+```typescript
+public readonly autoDeleteObjects: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether all objects should be automatically deleted when the bucket is removed from the stack or when the stack is deleted.
+
+Requires the `removalPolicy` to be set to `RemovalPolicy.DESTROY`.
+
+**Warning** if you have deployed a bucket with `autoDeleteObjects: true`,
+switching this to `false` in a CDK version *before* `1.126.0` will lead to
+all objects in the bucket being deleted. Be sure to update your bucket resources
+by deploying with CDK version `1.126.0` or later **before** switching this value to `false`.
+
+Setting `autoDeleteObjects` to true on a bucket will add `s3:PutBucketPolicy` to the
+bucket policy. This is because during bucket deletion, the custom resource provider
+needs to update the bucket policy by adding a deny policy for `s3:PutObject` to
+prevent race conditions with external bucket writers.
+
+---
+
+##### `blockPublicAccess`<sup>Optional</sup> <a name="blockPublicAccess" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.blockPublicAccess"></a>
+
+```typescript
+public readonly blockPublicAccess: BlockPublicAccess;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BlockPublicAccess
+- *Default:* CloudFormation defaults will apply. New buckets and objects don't allow public access, but users can modify bucket policies or object permissions to allow public access
+
+The block public access configuration of this bucket.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html)
+
+---
+
+##### `bucketKeyEnabled`<sup>Optional</sup> <a name="bucketKeyEnabled" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketKeyEnabled"></a>
+
+```typescript
+public readonly bucketKeyEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether Amazon S3 should use its own intermediary key to generate data keys.
+
+Only relevant when using KMS for encryption.
+
+- If not enabled, every object GET and PUT will cause an API call to KMS (with the
+  attendant cost implications of that).
+- If enabled, S3 will use its own time-limited key instead.
+
+Only relevant, when Encryption is not set to `BucketEncryption.UNENCRYPTED`.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+- *Default:* Assigned by CloudFormation (recommended).
+
+Physical name of this bucket.
+
+---
+
+##### `cors`<sup>Optional</sup> <a name="cors" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.cors"></a>
+
+```typescript
+public readonly cors: CorsRule[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CorsRule[]
+- *Default:* No CORS configuration.
+
+The CORS configuration of this bucket.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html)
+
+---
+
+##### `encryption`<sup>Optional</sup> <a name="encryption" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.encryption"></a>
+
+```typescript
+public readonly encryption: BucketEncryption;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketEncryption
+- *Default:* `KMS` if `encryptionKey` is specified, or `S3_MANAGED` otherwise.
+
+The kind of server-side encryption to apply to this bucket.
+
+If you choose KMS, you can specify a KMS key via `encryptionKey`. If
+encryption key is not specified, a key will automatically be created.
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+- *Default:* If `encryption` is set to `KMS` and this property is undefined, a new KMS key will be created and associated with this bucket.
+
+External KMS key to use for bucket encryption.
+
+The `encryption` property must be either not specified or set to `KMS` or `DSSE`.
+An error will be emitted if `encryption` is set to `UNENCRYPTED` or `S3_MANAGED`.
+
+---
+
+##### `enforceSSL`<sup>Optional</sup> <a name="enforceSSL" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.enforceSSL"></a>
+
+```typescript
+public readonly enforceSSL: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enforces SSL for requests.
+
+S3.5 of the AWS Foundational Security Best Practices Regarding S3.
+
+> [https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-ssl-requests-only.html](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-ssl-requests-only.html)
+
+---
+
+##### `eventBridgeEnabled`<sup>Optional</sup> <a name="eventBridgeEnabled" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.eventBridgeEnabled"></a>
+
+```typescript
+public readonly eventBridgeEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether this bucket should send notifications to Amazon EventBridge or not.
+
+---
+
+##### `intelligentTieringConfigurations`<sup>Optional</sup> <a name="intelligentTieringConfigurations" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.intelligentTieringConfigurations"></a>
+
+```typescript
+public readonly intelligentTieringConfigurations: IntelligentTieringConfiguration[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IntelligentTieringConfiguration[]
+- *Default:* No Intelligent Tiiering Configurations.
+
+Intelligent Tiering Configurations.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html)
+
+---
+
+##### `inventories`<sup>Optional</sup> <a name="inventories" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.inventories"></a>
+
+```typescript
+public readonly inventories: Inventory[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.Inventory[]
+- *Default:* No inventory configuration
+
+The inventory configuration of the bucket.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html)
+
+---
+
+##### `lifecycleRules`<sup>Optional</sup> <a name="lifecycleRules" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.lifecycleRules"></a>
+
+```typescript
+public readonly lifecycleRules: LifecycleRule[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.LifecycleRule[]
+- *Default:* No lifecycle rules.
+
+Rules that define how Amazon S3 manages objects during their lifetime.
+
+---
+
+##### `metrics`<sup>Optional</sup> <a name="metrics" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.metrics"></a>
+
+```typescript
+public readonly metrics: BucketMetrics[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketMetrics[]
+- *Default:* No metrics configuration.
+
+The metrics configuration of this bucket.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html)
+
+---
+
+##### `minimumTLSVersion`<sup>Optional</sup> <a name="minimumTLSVersion" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.minimumTLSVersion"></a>
+
+```typescript
+public readonly minimumTLSVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum TLS version is enforced.
+
+Enforces minimum TLS version for requests.
+
+Requires `enforceSSL` to be enabled.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html#example-object-tls-version](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html#example-object-tls-version)
+
+---
+
+##### `notificationsHandlerRole`<sup>Optional</sup> <a name="notificationsHandlerRole" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.notificationsHandlerRole"></a>
+
+```typescript
+public readonly notificationsHandlerRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+- *Default:* a new role will be created.
+
+The role to be used by the notifications handler.
+
+---
+
+##### `notificationsSkipDestinationValidation`<sup>Optional</sup> <a name="notificationsSkipDestinationValidation" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.notificationsSkipDestinationValidation"></a>
+
+```typescript
+public readonly notificationsSkipDestinationValidation: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations.
+
+---
+
+##### `objectLockDefaultRetention`<sup>Optional</sup> <a name="objectLockDefaultRetention" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.objectLockDefaultRetention"></a>
+
+```typescript
+public readonly objectLockDefaultRetention: ObjectLockRetention;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.ObjectLockRetention
+- *Default:* no default retention period
+
+The default retention mode and rules for S3 Object Lock.
+
+Default retention can be configured after a bucket is created if the bucket already
+has object lock enabled. Enabling object lock for existing buckets is not supported.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-bucket-config-enable](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-bucket-config-enable)
+
+---
+
+##### `objectLockEnabled`<sup>Optional</sup> <a name="objectLockEnabled" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.objectLockEnabled"></a>
+
+```typescript
+public readonly objectLockEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false, unless objectLockDefaultRetention is set (then, true)
+
+Enable object lock on the bucket.
+
+Enabling object lock for existing buckets is not supported. Object lock must be
+enabled when the bucket is created.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-bucket-config-enable](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-bucket-config-enable)
+
+---
+
+##### `objectOwnership`<sup>Optional</sup> <a name="objectOwnership" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.objectOwnership"></a>
+
+```typescript
+public readonly objectOwnership: ObjectOwnership;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.ObjectOwnership
+- *Default:* No ObjectOwnership configuration. By default, Amazon S3 sets Object Ownership to `Bucket owner enforced`. This means ACLs are disabled and the bucket owner will own every object.
+
+The objectOwnership of the bucket.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html)
+
+---
+
+##### `publicReadAccess`<sup>Optional</sup> <a name="publicReadAccess" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.publicReadAccess"></a>
+
+```typescript
+public readonly publicReadAccess: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Grants public read access to all objects in the bucket.
+
+Similar to calling `bucket.grantPublicAccess()`
+
+---
+
+##### `removalPolicy`<sup>Optional</sup> <a name="removalPolicy" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.removalPolicy"></a>
+
+```typescript
+public readonly removalPolicy: RemovalPolicy;
+```
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+- *Default:* The bucket will be orphaned.
+
+Policy to apply when the bucket is removed from this stack.
+
+---
+
+##### `replicationRules`<sup>Optional</sup> <a name="replicationRules" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.replicationRules"></a>
+
+```typescript
+public readonly replicationRules: ReplicationRule[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.ReplicationRule[]
+- *Default:* No replication
+
+A container for one or more replication rules.
+
+---
+
+##### `serverAccessLogsBucket`<sup>Optional</sup> <a name="serverAccessLogsBucket" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.serverAccessLogsBucket"></a>
+
+```typescript
+public readonly serverAccessLogsBucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+- *Default:* If "serverAccessLogsPrefix" undefined - access logs disabled, otherwise - log to current bucket.
+
+Destination bucket for the server access logs.
+
+---
+
+##### `serverAccessLogsPrefix`<sup>Optional</sup> <a name="serverAccessLogsPrefix" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.serverAccessLogsPrefix"></a>
+
+```typescript
+public readonly serverAccessLogsPrefix: string;
+```
+
+- *Type:* string
+- *Default:* No log file prefix
+
+Optional log file prefix to use for the bucket's access logs.
+
+If defined without "serverAccessLogsBucket", enables access logs to current bucket with this prefix.
+
+---
+
+##### `targetObjectKeyFormat`<sup>Optional</sup> <a name="targetObjectKeyFormat" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.targetObjectKeyFormat"></a>
+
+```typescript
+public readonly targetObjectKeyFormat: TargetObjectKeyFormat;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.TargetObjectKeyFormat
+- *Default:* the default key format is: [DestinationPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+
+Optional key format for log objects.
+
+---
+
+##### `transferAcceleration`<sup>Optional</sup> <a name="transferAcceleration" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.transferAcceleration"></a>
+
+```typescript
+public readonly transferAcceleration: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether this bucket should have transfer acceleration turned on or not.
+
+---
+
+##### `transitionDefaultMinimumObjectSize`<sup>Optional</sup> <a name="transitionDefaultMinimumObjectSize" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.transitionDefaultMinimumObjectSize"></a>
+
+```typescript
+public readonly transitionDefaultMinimumObjectSize: TransitionDefaultMinimumObjectSize;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.TransitionDefaultMinimumObjectSize
+- *Default:* TransitionDefaultMinimumObjectSize.VARIES_BY_STORAGE_CLASS before September 2024, otherwise TransitionDefaultMinimumObjectSize.ALL_STORAGE_CLASSES_128_K.
+
+Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+
+To customize the minimum object size for any transition you can add a filter that specifies a custom
+`objectSizeGreaterThan` or `objectSizeLessThan` for `lifecycleRules` property. Custom filters always
+take precedence over the default transition behavior.
+
+---
+
+##### `versioned`<sup>Optional</sup> <a name="versioned" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.versioned"></a>
+
+```typescript
+public readonly versioned: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false (unless object lock is enabled, then true)
+
+Whether this bucket should have versioning turned on or not.
+
+---
+
+##### `websiteErrorDocument`<sup>Optional</sup> <a name="websiteErrorDocument" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteErrorDocument"></a>
+
+```typescript
+public readonly websiteErrorDocument: string;
+```
+
+- *Type:* string
+- *Default:* No error document.
+
+The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set.
+
+---
+
+##### `websiteIndexDocument`<sup>Optional</sup> <a name="websiteIndexDocument" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteIndexDocument"></a>
+
+```typescript
+public readonly websiteIndexDocument: string;
+```
+
+- *Type:* string
+- *Default:* No index document.
+
+The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket.
+
+---
+
+##### `websiteRedirect`<sup>Optional</sup> <a name="websiteRedirect" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteRedirect"></a>
+
+```typescript
+public readonly websiteRedirect: RedirectTarget;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.RedirectTarget
+- *Default:* No redirection.
+
+Specifies the redirect behavior of all requests to a website endpoint of a bucket.
+
+If you specify this property, you can't specify "websiteIndexDocument", "websiteErrorDocument" nor , "websiteRoutingRules".
+
+---
+
+##### `websiteRoutingRules`<sup>Optional</sup> <a name="websiteRoutingRules" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.websiteRoutingRules"></a>
+
+```typescript
+public readonly websiteRoutingRules: RoutingRule[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.RoutingRule[]
+- *Default:* No redirection rules.
+
+Rules that define when a redirect is applied and the redirect behavior.
+
+---
+
+##### `bucketType`<sup>Optional</sup> <a name="bucketType" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketType"></a>
+
+```typescript
+public readonly bucketType: SecureBucketType;
+```
+
+- *Type:* @gammarers/aws-secure-bucket.SecureBucketType
+- *Default:* SecureBucketType.DEFAULT
+
+The type of the bucket.
+
+---
+
+##### ~~`isCloudFrontOriginBucket`~~<sup>Optional</sup> <a name="isCloudFrontOriginBucket" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.isCloudFrontOriginBucket"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
+
+```typescript
+public readonly isCloudFrontOriginBucket: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+If your are using it as the CloudFront origin bucket, set it to true.
+
+---
+
+##### ~~`isPipelineArtifactBucket`~~<sup>Optional</sup> <a name="isPipelineArtifactBucket" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.isPipelineArtifactBucket"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
+
+```typescript
+public readonly isPipelineArtifactBucket: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true.
+
+---
+
+##### `logBucketType`<sup>Required</sup> <a name="logBucketType" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.logBucketType"></a>
+
+```typescript
+public readonly logBucketType: SecureLogBucketType;
+```
+
+- *Type:* <a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketType">SecureLogBucketType</a>
+
+The type of the bucket.
+
+---
+
+##### `bucketObjectKeyPrefix`<sup>Optional</sup> <a name="bucketObjectKeyPrefix" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.bucketObjectKeyPrefix"></a>
+
+```typescript
+public readonly bucketObjectKeyPrefix: string[];
+```
+
+- *Type:* string[]
+
+The prefix of the bucket object key.
+
+---
+
+##### `lifecycleStorageClassTransition`<sup>Optional</sup> <a name="lifecycleStorageClassTransition" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.lifecycleStorageClassTransition"></a>
+
+```typescript
+public readonly lifecycleStorageClassTransition: LifecycleStorageClassTransition;
+```
+
+- *Type:* <a href="#@gammarers/aws-secure-log-bucket.LifecycleStorageClassTransition">LifecycleStorageClassTransition</a>
+
+---
+
+##### ~~`vpcFlowLog`~~<sup>Optional</sup> <a name="vpcFlowLog" id="@gammarers/aws-secure-log-bucket.SecureVpcFlowLogBucketProps.property.vpcFlowLog"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
 
 ```typescript
 public readonly vpcFlowLog: VPCFlowLog;
@@ -1902,4 +2578,26 @@ public readonly enable: boolean;
 ---
 
 
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### SecureLogBucketType <a name="SecureLogBucketType" id="@gammarers/aws-secure-log-bucket.SecureLogBucketType"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketType.NORMAL">NORMAL</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucketType.VPC_FLOW_LOG">VPC_FLOW_LOG</a></code> | *No description.* |
+
+---
+
+##### `NORMAL` <a name="NORMAL" id="@gammarers/aws-secure-log-bucket.SecureLogBucketType.NORMAL"></a>
+
+---
+
+
+##### `VPC_FLOW_LOG` <a name="VPC_FLOW_LOG" id="@gammarers/aws-secure-log-bucket.SecureLogBucketType.VPC_FLOW_LOG"></a>
+
+---
 
