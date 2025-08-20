@@ -435,10 +435,10 @@
     "@eslint/core" "^0.15.2"
     levn "^0.4.1"
 
-"@gammarers/aws-secure-bucket@^2.3.6":
-  version "2.3.20"
-  resolved "https://registry.yarnpkg.com/@gammarers/aws-secure-bucket/-/aws-secure-bucket-2.3.20.tgz#ae1ab1e2beaa07ea0c954339832e357da3425b52"
-  integrity sha512-pVs25aPA2jyiEAn5ULgW/ZmE2kmjIiqyTw00PHpMEzLoOf4Z30yfJw4qgKjYGE30+t8pY+0VAl2rqnfgKbt0Rw==
+"@gammarers/aws-secure-bucket@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@gammarers/aws-secure-bucket/-/aws-secure-bucket-2.4.1.tgz#ed804bdd1b381a061f63b3ef73f73fd17f280b17"
+  integrity sha512-PtV0UjgrV5MnA9zp0+HTTpOJWGaCpuxPa0M7pCa3amSWDBqZvrW97W5Ru0DOjAlU6gKKLbw8J5AmYvzYTD420g==
 
 "@humanfs/core@^0.19.1":
   version "0.19.1"

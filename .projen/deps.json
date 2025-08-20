@@ -103,7 +103,7 @@
     },
     {
       "name": "@gammarers/aws-secure-bucket",
-      "version": "^2.3.6",
+      "version": "^2.4.1",
       "type": "runtime"
     }
   ],
