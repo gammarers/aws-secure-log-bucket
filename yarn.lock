@@ -429,7 +429,7 @@
     "@eslint/core" "^0.17.0"
     levn "^0.4.1"
 
-"@gammarers/aws-secure-bucket@^2.4.1":
+"@gammarers/aws-secure-bucket@^2.5.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@gammarers/aws-secure-bucket/-/aws-secure-bucket-2.5.0.tgz#c172c53bc6b90cdf7cf5610eb47bd66407d7dc8d"
   integrity sha512-uBd/AI90SgvMIVaVc2QgyzlAiXsOysyv8+S+dtQoeNppodLDjPnKc2INUKERgwHqhqlq/Q+ilbbW4H7Ub/5FFA==
