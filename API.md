@@ -43,6 +43,7 @@ new SecureLogBucket(scope: Construct, id: string, props?: SecureNormalLogBucketP
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
 | <code><a href="#@gammarers/aws-secure-log-bucket.SecureLogBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
@@ -79,6 +80,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@gammarers/aws-secure-log-bucket.SecureLogBucket.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@gammarers/aws-secure-log-bucket.SecureLogBucket.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="@gammarers/aws-secure-log-bucket.SecureLogBucket.applyRemovalPolicy"></a>
 
